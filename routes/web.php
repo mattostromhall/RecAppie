@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -21,6 +22,16 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard', DashboardController::class)
+        ->name('dashboard');
+
+    Route::get('/recipes', [RecipeController::class, 'index'])
+        ->name('recipes.index');
+
+    Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])
+        ->name('recipes.show');
+});
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
     ->middleware('guest')
@@ -74,7 +85,3 @@ Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store']
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
-
-Route::get('/dashboard', DashboardController::class)
-    ->middleware(['auth'])
-    ->name('dashboard');
