@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Recipe;
+use App\Models\RecipeStep;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,8 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Recipe::factory()
-            ->count(20)
+        User::factory(20)
+            ->has(
+                Recipe::factory()
+                    ->has(RecipeStep::factory()->count(5), 'steps')
+                    ->count(5)
+            )
             ->create();
     }
 }

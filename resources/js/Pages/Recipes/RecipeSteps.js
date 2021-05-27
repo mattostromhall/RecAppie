@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function RecipeSteps(props) {
+export default function RecipeSteps({ steps }) {
     return (
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto flex flex-wrap">

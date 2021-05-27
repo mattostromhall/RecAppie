@@ -18,4 +18,12 @@ class Recipe extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function steps()
+    {
+        return $this->hasMany(RecipeStep::class);
+    }
 }

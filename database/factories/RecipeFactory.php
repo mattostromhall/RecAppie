@@ -23,7 +23,6 @@ class RecipeFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
             'title' => $this->faker->text(15),
             'description' => $this->faker->text()
         ];

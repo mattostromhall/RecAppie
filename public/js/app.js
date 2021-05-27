@@ -5444,11 +5444,140 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function Dashboard() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
     title: "Dashboard | RecAppie",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {})
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
+      className: "text-gray-600 body-font",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "container px-5 py-24 mx-auto",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "flex flex-wrap w-full mb-20",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "lg:w-1/2 w-full mb-6 lg:mb-0",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+              className: "sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900",
+              children: "Pitchfork Kickstarter Taxidermy"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "h-1 w-20 bg-indigo-500 rounded"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            className: "lg:w-1/2 w-full leading-relaxed text-gray-500",
+            children: "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom prism food truck ugh squid celiac humblebrag."
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "flex flex-wrap -m-4",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "xl:w-1/4 md:w-1/2 p-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "bg-gray-100 p-6 rounded-lg",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "h-40 rounded w-full object-cover object-center mb-6",
+                src: "https://dummyimage.com/720x400",
+                alt: "content"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                className: "tracking-widest text-indigo-500 text-xs font-medium title-font",
+                children: "SUBTITLE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+                className: "text-lg text-gray-900 font-medium title-font mb-4",
+                children: "Chichen Itza"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                className: "leading-relaxed text-base",
+                children: "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "xl:w-1/4 md:w-1/2 p-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "bg-gray-100 p-6 rounded-lg",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "h-40 rounded w-full object-cover object-center mb-6",
+                src: "https://dummyimage.com/721x401",
+                alt: "content"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                className: "tracking-widest text-indigo-500 text-xs font-medium title-font",
+                children: "SUBTITLE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+                className: "text-lg text-gray-900 font-medium title-font mb-4",
+                children: "Colosseum Roma"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                className: "leading-relaxed text-base",
+                children: "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "xl:w-1/4 md:w-1/2 p-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "bg-gray-100 p-6 rounded-lg",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "h-40 rounded w-full object-cover object-center mb-6",
+                src: "https://dummyimage.com/722x402",
+                alt: "content"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                className: "tracking-widest text-indigo-500 text-xs font-medium title-font",
+                children: "SUBTITLE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+                className: "text-lg text-gray-900 font-medium title-font mb-4",
+                children: "Great Pyramid of Giza"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                className: "leading-relaxed text-base",
+                children: "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "xl:w-1/4 md:w-1/2 p-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "bg-gray-100 p-6 rounded-lg",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                className: "h-40 rounded w-full object-cover object-center mb-6",
+                src: "https://dummyimage.com/723x403",
+                alt: "content"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                className: "tracking-widest text-indigo-500 text-xs font-medium title-font",
+                children: "SUBTITLE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+                className: "text-lg text-gray-900 font-medium title-font mb-4",
+                children: "San Francisco"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                className: "leading-relaxed text-base",
+                children: "Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche."
+              })]
+            })
+          })]
+        })]
+      })
+    })]
   });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Recipes/Create.js":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/Recipes/Create.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Create)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+
+
+function Create() {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+    title: '',
+    description: ''
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      processing = _useForm.processing,
+      errors = _useForm.errors;
 }
 
 /***/ }),
@@ -5481,6 +5610,48 @@ function Index() {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Recipes/RecipeInfo.js":
+/*!**************************************************!*\
+  !*** ./resources/js/Pages/Recipes/RecipeInfo.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ RecipeInfo)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function RecipeInfo(_ref) {
+  var title = _ref.title,
+      description = _ref.description;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
+    className: "text-gray-600 body-font",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "container px-5 py-12 mx-auto",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "flex flex-col text-center w-full",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+          className: "uppercase text-xs text-indigo-500 tracking-widest font-medium title-font mb-1",
+          children: "Instructions for"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+          className: "uppercase sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900",
+          children: title
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "lg:w-2/3 mx-auto leading-relaxed text-base",
+          children: description
+        })]
+      })
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Recipes/RecipeSteps.js":
 /*!***************************************************!*\
   !*** ./resources/js/Pages/Recipes/RecipeSteps.js ***!
@@ -5497,7 +5668,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function RecipeSteps(props) {
+function RecipeSteps(_ref) {
+  var steps = _ref.steps;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("section", {
     className: "text-gray-600 body-font",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -5691,17 +5863,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/MainNav */ "./resources/js/Components/MainNav.js");
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/App */ "./resources/js/Layouts/App.js");
 /* harmony import */ var _RecipeSteps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecipeSteps */ "./resources/js/Pages/Recipes/RecipeSteps.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _RecipeInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RecipeInfo */ "./resources/js/Pages/Recipes/RecipeInfo.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 
 
-function Show() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
-    title: "Dashboard | RecAppie",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_RecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {})]
+
+function Show(_ref) {
+  var recipe = _ref.recipe,
+      steps = _ref.steps;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
+    title: "".concat(recipe.title, " | RecAppie"),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_RecipeInfo__WEBPACK_IMPORTED_MODULE_4__.default, {
+      title: recipe.title,
+      description: recipe.description
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_RecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {
+      steps: steps
+    })]
   });
 }
 
@@ -38866,8 +39047,12 @@ var map = {
 	"./Auth/Register.js": "./resources/js/Pages/Auth/Register.js",
 	"./Dashboard": "./resources/js/Pages/Dashboard.js",
 	"./Dashboard.js": "./resources/js/Pages/Dashboard.js",
+	"./Recipes/Create": "./resources/js/Pages/Recipes/Create.js",
+	"./Recipes/Create.js": "./resources/js/Pages/Recipes/Create.js",
 	"./Recipes/Index": "./resources/js/Pages/Recipes/Index.js",
 	"./Recipes/Index.js": "./resources/js/Pages/Recipes/Index.js",
+	"./Recipes/RecipeInfo": "./resources/js/Pages/Recipes/RecipeInfo.js",
+	"./Recipes/RecipeInfo.js": "./resources/js/Pages/Recipes/RecipeInfo.js",
 	"./Recipes/RecipeSteps": "./resources/js/Pages/Recipes/RecipeSteps.js",
 	"./Recipes/RecipeSteps.js": "./resources/js/Pages/Recipes/RecipeSteps.js",
 	"./Recipes/Show": "./resources/js/Pages/Recipes/Show.js",
