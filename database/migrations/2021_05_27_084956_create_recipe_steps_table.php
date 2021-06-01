@@ -18,6 +18,7 @@ class CreateRecipeStepsTable extends Migration
             $table->foreignId('recipe_id')
                 ->constrained()
                 ->onDelete('cascade');
+            $table->unsignedInteger('step_number')->nullable();
             $table->text('instruction');
             $table->timestamps();
         });

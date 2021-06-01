@@ -26,4 +26,12 @@ class Recipe extends Model
     {
         return $this->hasMany(RecipeStep::class);
     }
+
+    public function orderedSteps()
+    {
+        return $this->steps()
+            ->orderByRaw('step_number is null')
+            ->orderBy('step_number')
+            ->get();
+    }
 }

@@ -5671,12 +5671,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function RecipeStep() {
+function RecipeStep(_ref) {
+  var step = _ref.step,
+      lastStep = _ref.lastStep;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "flex relative pb-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "h-full w-10 absolute inset-0 flex items-center justify-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: !lastStep && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "h-full w-1 bg-gray-200 pointer-events-none"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -5701,7 +5703,7 @@ function RecipeStep() {
         children: "STEP 1"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
         className: "leading-relaxed",
-        children: "VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal."
+        children: step.instruction
       })]
     })]
   });
@@ -5740,9 +5742,10 @@ function RecipeSteps() {
         className: "flex flex-wrap w-full",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "lg:w-2/5 md:w-1/2 md:pr-10 md:py-6",
-          children: steps.map(function (step) {
+          children: steps.map(function (step, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RecipeStep__WEBPACK_IMPORTED_MODULE_2__.default, {
-              step: step
+              step: step,
+              lastStep: steps.length - 1 === index
             }, step.id);
           })
         })
