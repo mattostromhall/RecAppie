@@ -32,6 +32,12 @@ class Recipe extends Model
         return $this->steps()
             ->orderByRaw('step_number is null')
             ->orderBy('step_number')
-            ->get();
+            ->get()
+            ->map(function($step, $key) {
+                if (!$step->step_number) {
+                    $step->step_number = $key + 1;
+                }
+                return $step;
+            });
     }
 }

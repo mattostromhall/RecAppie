@@ -29,8 +29,12 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/recipes', [RecipeController::class, 'index'])
         ->name('recipes.index');
 
+    Route::get('/recipes/create', [RecipeController::class, 'create'])
+        ->name('recipes.create');
+
     Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])
         ->name('recipes.show');
+
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])

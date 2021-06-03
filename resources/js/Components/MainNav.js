@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Inertia } from '@inertiajs/inertia'
+import { InertiaLink, usePage } from '@inertiajs/inertia-react'
 import AppLogo from './AppLogo'
 import NavDropdown from './NavDropdown'
 
 export default function MainNav() {
     const [open, setOpen] = useState(false)
+    const {url} = usePage()
 
     function toggleDropdown() {
         setOpen(!open)
@@ -21,11 +22,9 @@ export default function MainNav() {
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
-                                    <a href="#" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                                    <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-                                    <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                                    <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
-                                    <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+                                    <InertiaLink href="/dashboard" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</InertiaLink>
+                                    <InertiaLink href="/recipes" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Recipes</InertiaLink>
+                                    <InertiaLink href="/recipes/create" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Add Recipe</InertiaLink>
                                 </div>
                             </div>
                         </div>

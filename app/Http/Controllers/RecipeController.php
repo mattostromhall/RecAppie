@@ -13,16 +13,16 @@ class RecipeController extends Controller
         return Inertia::render('Recipes/Index');
     }
 
-    public function create()
-    {
-        return Inertia::render('Recipes/Create');
-    }
-
     public function show(Recipe $recipe)
     {
         return Inertia::render('Recipes/Show', [
             'recipe' => $recipe,
             'steps' => $recipe->orderedSteps()
         ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('Recipes/Create');
     }
 }
