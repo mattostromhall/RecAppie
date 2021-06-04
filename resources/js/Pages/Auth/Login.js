@@ -11,7 +11,7 @@ export default function Login() {
         remember: ''
     })
 
-    function submit(e) {
+    const submit = (e) => {
         e.preventDefault()
         post('/login')
     }

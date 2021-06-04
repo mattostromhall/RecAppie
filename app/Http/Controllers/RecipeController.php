@@ -25,4 +25,29 @@ class RecipeController extends Controller
     {
         return Inertia::render('Recipes/Create');
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string'
+        ]);
+
+        $recipe = Recipe::create([
+            'user_id' => auth()->id(),
+            'title' => $request->title,
+            'description' => $request->description
+        ]);
+
+        return redirect(
+            route('recipes.edit', $recipe)
+        );
+    }
+
+    public function edit(Recipe $recipe)
+    {
+        return Inertia::render('Recipes/Edit', [
+            'recipe' => $recipe
+        ]);
+    }
 }

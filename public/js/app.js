@@ -3072,10 +3072,10 @@ __webpack_require__.r(__webpack_exports__);
 function NavDropdown(_ref) {
   var isOpen = _ref.isOpen;
 
-  function logout(e) {
+  var logout = function logout(e) {
     e.preventDefault();
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/logout');
-  }
+  };
 
   if (!isOpen) {
     return null;
@@ -3111,6 +3111,121 @@ function NavDropdown(_ref) {
         id: "user-menu-item-2",
         children: "Logout"
       })
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/SubmitButton.js":
+/*!*************************************************!*\
+  !*** ./resources/js/Components/SubmitButton.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SubmitButton)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function SubmitButton(_ref) {
+  var text = _ref.text,
+      disabled = _ref.disabled;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+    type: "submit",
+    className: "inline-flex items-center mt-3 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150",
+    disabled: disabled,
+    children: text
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/TextAreaInput.js":
+/*!**************************************************!*\
+  !*** ./resources/js/Components/TextAreaInput.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TextAreaInput)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function TextAreaInput(_ref) {
+  var label = _ref.label,
+      name = _ref.name,
+      value = _ref.value,
+      handleChange = _ref.handleChange,
+      error = _ref.error;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+      htmlFor: name,
+      className: "block font-medium text-sm text-gray-700",
+      children: label
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
+      id: name,
+      name: name,
+      className: "block mt-1 p-2 w-full rounded-md shadow-sm border border-gray-300 outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+      value: value,
+      onChange: handleChange,
+      required: true
+    }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "text-red-600 text-sm mt-1",
+      children: error
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/TextInput.js":
+/*!**********************************************!*\
+  !*** ./resources/js/Components/TextInput.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TextInput)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function TextInput(_ref) {
+  var label = _ref.label,
+      name = _ref.name,
+      value = _ref.value,
+      handleChange = _ref.handleChange,
+      error = _ref.error;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+      htmlFor: name,
+      className: "block font-medium text-sm text-gray-700",
+      children: label
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      id: name,
+      name: name,
+      type: "text",
+      className: "block mt-1 p-2 w-full rounded-md shadow-sm border border-gray-300 outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+      value: value,
+      onChange: handleChange,
+      required: true
+    }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "text-red-600 text-sm mt-1",
+      children: error
     })]
   });
 }
@@ -3209,10 +3324,10 @@ function Login() {
       processing = _useForm.processing,
       errors = _useForm.errors;
 
-  function submit(e) {
+  var submit = function submit(e) {
     e.preventDefault();
     post('/login');
-  }
+  };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_Guest__WEBPACK_IMPORTED_MODULE_1__.default, {
     title: "Login | RecAppie",
@@ -3605,7 +3720,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/App */ "./resources/js/Layouts/App.js");
 /* harmony import */ var _Components_MainNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/MainNav */ "./resources/js/Components/MainNav.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components_TextInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/TextInput */ "./resources/js/Components/TextInput.js");
+/* harmony import */ var _Components_TextAreaInput__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/TextAreaInput */ "./resources/js/Components/TextAreaInput.js");
+/* harmony import */ var _Components_SubmitButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Components/SubmitButton */ "./resources/js/Components/SubmitButton.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
 
 
 
@@ -3623,26 +3744,103 @@ function Create() {
       processing = _useForm.processing,
       errors = _useForm.errors;
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
+  var handleTitleChange = function handleTitleChange(e) {
+    setData('title', e.target.value);
+  };
+
+  var handleDescriptionChange = function handleDescriptionChange(e) {
+    setData('description', e.target.value);
+  };
+
+  var submit = function submit(e) {
+    e.preventDefault();
+    post('/recipes');
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
     title: 'Create New | RecAppie',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
-      className: "text-gray-600 body-font",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "container px-5 py-12 mx-auto",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
+      className: "text-gray-600 body-font flex flex-col items-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "container px-5 pt-12 mx-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "flex flex-col text-center w-full",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
             className: "uppercase text-xs text-indigo-500 tracking-widest font-medium title-font mb-1",
             children: "Add new"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
             className: "uppercase sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900",
             children: "Recipe"
           })]
         })
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+          onSubmit: submit,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_TextInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+              label: "Title",
+              value: data.title,
+              error: errors.title,
+              handleChange: handleTitleChange
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "mt-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_TextAreaInput__WEBPACK_IMPORTED_MODULE_5__.default, {
+              label: "Description",
+              value: data.description,
+              error: errors.description,
+              handleChange: handleDescriptionChange
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "mt-3",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_SubmitButton__WEBPACK_IMPORTED_MODULE_6__.default, {
+              text: "Create",
+              disabled: processing
+            })
+          })]
+        })
+      })]
     })]
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Recipes/Edit.js":
+/*!********************************************!*\
+  !*** ./resources/js/Pages/Recipes/Edit.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Show),
+/* harmony export */   "RecipeContext": () => (/* binding */ RecipeContext)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_MainNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/MainNav */ "./resources/js/Components/MainNav.js");
+/* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/App */ "./resources/js/Layouts/App.js");
+/* harmony import */ var _RecipeSteps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecipeSteps */ "./resources/js/Pages/Recipes/RecipeSteps.js");
+/* harmony import */ var _RecipeInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RecipeInfo */ "./resources/js/Pages/Recipes/RecipeInfo.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var RecipeContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({});
+function Show(_ref) {
+  var recipe = _ref.recipe;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
+    title: "Edit ".concat(recipe.title, " | RecAppie"),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), "Edit"]
+  });
+}
+
 
 /***/ }),
 
@@ -54273,6 +54471,8 @@ var map = {
 	"./Dashboard.js": "./resources/js/Pages/Dashboard.js",
 	"./Recipes/Create": "./resources/js/Pages/Recipes/Create.js",
 	"./Recipes/Create.js": "./resources/js/Pages/Recipes/Create.js",
+	"./Recipes/Edit": "./resources/js/Pages/Recipes/Edit.js",
+	"./Recipes/Edit.js": "./resources/js/Pages/Recipes/Edit.js",
 	"./Recipes/Index": "./resources/js/Pages/Recipes/Index.js",
 	"./Recipes/Index.js": "./resources/js/Pages/Recipes/Index.js",
 	"./Recipes/RecipeInfo": "./resources/js/Pages/Recipes/RecipeInfo.js",

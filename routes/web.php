@@ -25,16 +25,18 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
-
     Route::get('/recipes', [RecipeController::class, 'index'])
         ->name('recipes.index');
-
     Route::get('/recipes/create', [RecipeController::class, 'create'])
         ->name('recipes.create');
-
     Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])
         ->name('recipes.show');
-
+    Route::get('/recipes/{recipe}/edit', [RecipeController::class, 'edit'])
+        ->name('recipes.edit');
+    Route::post('/recipes', [RecipeController::class, 'store'])
+        ->name('recipes.store');
+    Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])
+        ->name('recipes.update');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])

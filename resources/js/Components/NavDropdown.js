@@ -2,7 +2,7 @@ import React from 'react'
 import { Inertia } from '@inertiajs/inertia'
 
 export default function NavDropdown({ isOpen }) {
-    function logout(e) {
+    const logout = (e) => {
         e.preventDefault()
         Inertia.post('/logout')
     }
