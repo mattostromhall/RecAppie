@@ -10,7 +10,9 @@ class RecipeController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Recipes/Index');
+        return Inertia::render('Recipes/Index', [
+            'recipes' => Recipe::paginate(15)
+        ]);
     }
 
     public function show(Recipe $recipe)
@@ -47,7 +49,8 @@ class RecipeController extends Controller
     public function edit(Recipe $recipe)
     {
         return Inertia::render('Recipes/Edit', [
-            'recipe' => $recipe
+            'recipe' => $recipe,
+            'steps' => $recipe->orderedSteps()
         ]);
     }
 }

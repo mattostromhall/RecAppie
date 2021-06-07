@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { RecipeContext } from './Show'
+import {RecipeContext} from '../../app'
 import RecipeStep from './RecipeStep'
 
 export default function RecipeSteps() {

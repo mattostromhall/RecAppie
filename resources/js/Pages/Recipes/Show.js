@@ -1,10 +1,9 @@
-import React, { createContext }  from 'react'
+import React  from 'react'
+import {RecipeContext} from '../../app'
 import MainNav from '../../Components/MainNav'
 import App from '../../Layouts/App'
 import RecipeSteps from './RecipeSteps'
 import RecipeInfo from './RecipeInfo'
-
-const RecipeContext = createContext({})
 
 export default function Show({ recipe, steps }) {
 
@@ -18,5 +17,3 @@ export default function Show({ recipe, steps }) {
         </App>
     )
 }
-
-export { RecipeContext }
