@@ -3705,6 +3705,73 @@ function Dashboard() {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Recipes/AddRecipeStep.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Pages/Recipes/AddRecipeStep.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AddRecipeStep)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components_TextAreaInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/TextAreaInput */ "./resources/js/Components/TextAreaInput.js");
+/* harmony import */ var _Components_SubmitButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/SubmitButton */ "./resources/js/Components/SubmitButton.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+function AddRecipeStep() {
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_app__WEBPACK_IMPORTED_MODULE_1__.RecipeContext),
+      recipe = _useContext.recipe;
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+    instruction: ''
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      processing = _useForm.processing,
+      errors = _useForm.errors;
+
+  function submit(e) {
+    e.preventDefault();
+    post("/recipes/".concat(recipe.id, "/steps"));
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+    className: "w-full max-w-md",
+    onSubmit: submit,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+      className: "text-xl font-medium",
+      children: "Add Step"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "mt-3",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_TextAreaInput__WEBPACK_IMPORTED_MODULE_3__.default, {
+        label: "Instructions",
+        value: data.instruction,
+        error: errors.instruction,
+        handleChange: function handleChange(e) {
+          return setData('instruction', e.target.value);
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_SubmitButton__WEBPACK_IMPORTED_MODULE_4__.default, {
+        text: "Add",
+        disabled: processing
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Recipes/Create.js":
 /*!**********************************************!*\
   !*** ./resources/js/Pages/Recipes/Create.js ***!
@@ -3822,8 +3889,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_MainNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/MainNav */ "./resources/js/Components/MainNav.js");
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/App */ "./resources/js/Layouts/App.js");
 /* harmony import */ var _RecipeSteps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecipeSteps */ "./resources/js/Pages/Recipes/RecipeSteps.js");
-/* harmony import */ var _RecipeInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RecipeInfo */ "./resources/js/Pages/Recipes/RecipeInfo.js");
-/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
+/* harmony import */ var _AddRecipeStep__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddRecipeStep */ "./resources/js/Pages/Recipes/AddRecipeStep.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -3838,7 +3905,7 @@ function Edit(_ref) {
       steps = _ref.steps;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
     title: "Edit ".concat(recipe.title, " | RecAppie"),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_app__WEBPACK_IMPORTED_MODULE_5__.RecipeContext.Provider, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_app__WEBPACK_IMPORTED_MODULE_4__.RecipeContext.Provider, {
       value: {
         recipe: recipe,
         steps: steps
@@ -3858,9 +3925,9 @@ function Edit(_ref) {
             })]
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
-        className: "flex",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("section", {
+        className: "flex justify-around py-12",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_AddRecipeStep__WEBPACK_IMPORTED_MODULE_5__.default, {})]
       })]
     })]
   });
@@ -4020,12 +4087,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
 function RecipeStep(_ref) {
   var step = _ref.step,
       lastStep = _ref.lastStep;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      deleteSvg = _useState2[0],
+      setDeleteSvg = _useState2[1];
+
+  function toggleSvg() {
+    setDeleteSvg(!deleteSvg);
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "flex relative pb-12",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -4033,9 +4122,10 @@ function RecipeStep(_ref) {
       children: !lastStep && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "h-full w-1 bg-gray-200 pointer-events-none"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10 cursor-pointer",
+      onClick: toggleSvg,
+      children: [!deleteSvg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         className: "h-6 w-6",
         fill: "none",
@@ -4044,10 +4134,22 @@ function RecipeStep(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
           strokeLinecap: "round",
           strokeLinejoin: "round",
-          strokeWidth: 2,
+          strokeWidth: "2",
           d: "M5 13l4 4L19 7"
         })
-      })
+      }), deleteSvg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        className: "h-6 w-6",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        stroke: "currentColor",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: "2",
+          d: "M6 18L18 6M6 6l12 12"
+        })
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex-grow pl-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
@@ -4087,21 +4189,12 @@ function RecipeSteps() {
       steps = _useContext.steps;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
-    className: "text-gray-600 body-font",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "container px-5 py-12 mx-auto flex flex-wrap",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "flex flex-wrap justify-center w-full",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "lg:w-2/5 md:w-1/2 md:pr-10 md:py-6",
-          children: steps.map(function (step, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RecipeStep__WEBPACK_IMPORTED_MODULE_2__.default, {
-              step: step,
-              lastStep: steps.length - 1 === index
-            }, step.id);
-          })
-        })
-      })
+    className: "text-gray-600 body-font w-full max-w-2xl",
+    children: steps.map(function (step, index) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RecipeStep__WEBPACK_IMPORTED_MODULE_2__.default, {
+        step: step,
+        lastStep: steps.length - 1 === index
+      }, step.id);
     })
   });
 }
@@ -54562,6 +54655,8 @@ var map = {
 	"./Auth/Register.js": "./resources/js/Pages/Auth/Register.js",
 	"./Dashboard": "./resources/js/Pages/Dashboard.js",
 	"./Dashboard.js": "./resources/js/Pages/Dashboard.js",
+	"./Recipes/AddRecipeStep": "./resources/js/Pages/Recipes/AddRecipeStep.js",
+	"./Recipes/AddRecipeStep.js": "./resources/js/Pages/Recipes/AddRecipeStep.js",
 	"./Recipes/Create": "./resources/js/Pages/Recipes/Create.js",
 	"./Recipes/Create.js": "./resources/js/Pages/Recipes/Create.js",
 	"./Recipes/Edit": "./resources/js/Pages/Recipes/Edit.js",

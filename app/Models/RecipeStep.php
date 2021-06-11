@@ -9,6 +9,7 @@ class RecipeStep extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

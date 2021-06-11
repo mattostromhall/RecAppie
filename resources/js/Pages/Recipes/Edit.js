@@ -2,8 +2,8 @@ import React  from 'react'
 import MainNav from '../../Components/MainNav'
 import App from '../../Layouts/App'
 import RecipeSteps from './RecipeSteps'
-import RecipeInfo from './RecipeInfo'
 import {RecipeContext} from '../../app'
+import AddRecipeStep from './AddRecipeStep'
 
 export default function Edit({ recipe, steps }) {
 
@@ -19,8 +19,9 @@ export default function Edit({ recipe, steps }) {
                         </div>
                     </div>
                 </section>
-                <section className="flex">
+                <section className="flex justify-around py-12">
                     <RecipeSteps />
+                    <AddRecipeStep />
                 </section>
             </RecipeContext.Provider>
         </App>

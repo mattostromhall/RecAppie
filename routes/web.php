@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\RecipeStepController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -37,6 +38,8 @@ Route::middleware(['auth'])->group(function() {
         ->name('recipes.store');
     Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])
         ->name('recipes.update');
+    Route::post('/recipes/{recipe}/steps', [RecipeStepController::class, 'store'])
+        ->name('recipes.step.store');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
