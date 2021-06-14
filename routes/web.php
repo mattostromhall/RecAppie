@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function() {
         ->name('recipes.update');
     Route::post('/recipes/{recipe}/steps', [RecipeStepController::class, 'store'])
         ->name('recipes.step.store');
+    Route::delete('steps/{recipe_step}', [RecipeStepController::class, 'destroy']);
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])

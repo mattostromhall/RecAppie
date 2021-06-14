@@ -3178,6 +3178,7 @@ function TextAreaInput(_ref) {
       className: "block mt-1 p-2 w-full rounded-md shadow-sm border border-gray-300 outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
       value: value,
       onChange: handleChange,
+      rows: "5",
       required: true
     }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "text-red-600 text-sm mt-1",
@@ -3740,11 +3741,16 @@ function AddRecipeStep() {
       setData = _useForm.setData,
       post = _useForm.post,
       processing = _useForm.processing,
+      reset = _useForm.reset,
       errors = _useForm.errors;
 
   function submit(e) {
     e.preventDefault();
-    post("/recipes/".concat(recipe.id, "/steps"));
+    post("/recipes/".concat(recipe.id, "/steps"), {
+      onSuccess: function onSuccess() {
+        return reset('instruction');
+      }
+    });
   }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
@@ -3874,6 +3880,57 @@ function Create() {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Recipes/DeleteRecipeStep.js":
+/*!********************************************************!*\
+  !*** ./resources/js/Pages/Recipes/DeleteRecipeStep.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ DeleteRecipeStep)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function DeleteRecipeStep(_ref) {
+  var id = _ref.id;
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({}),
+      destroy = _useForm["delete"],
+      processing = _useForm.processing,
+      errors = _useForm.errors;
+
+  function deleteStep() {
+    destroy("/steps/".concat(id));
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+    className: "flex-shrink-0 w-10 h-10 ml-2 rounded-full bg-red-500 inline-flex items-center justify-center text-white relative z-10 cursor-pointer focus:outline-none focus:ring focus:ring-red-300",
+    onClick: deleteStep,
+    disabled: processing,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      className: "h-6 w-6",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      stroke: "currentColor",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeWidth: "2",
+        d: "M6 18L18 6M6 6l12 12"
+      })
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Recipes/Edit.js":
 /*!********************************************!*\
   !*** ./resources/js/Pages/Recipes/Edit.js ***!
@@ -3932,6 +3989,23 @@ function Edit(_ref) {
     })]
   });
 }
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Recipes/EditRecipeStep.js":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/Recipes/EditRecipeStep.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ EditRecipeStep)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+function EditRecipeStep() {}
 
 /***/ }),
 
@@ -4086,7 +4160,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ RecipeStep)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components_TextAreaInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/TextAreaInput */ "./resources/js/Components/TextAreaInput.js");
+/* harmony import */ var _Components_SubmitButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/SubmitButton */ "./resources/js/Components/SubmitButton.js");
+/* harmony import */ var _DeleteRecipeStep__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DeleteRecipeStep */ "./resources/js/Pages/Recipes/DeleteRecipeStep.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4102,62 +4180,79 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
+
+
 function RecipeStep(_ref) {
   var step = _ref.step,
       lastStep = _ref.lastStep;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
-      deleteSvg = _useState2[0],
-      setDeleteSvg = _useState2[1];
+      showDelete = _useState2[0],
+      setShowDelete = _useState2[1];
 
-  function toggleSvg() {
-    setDeleteSvg(!deleteSvg);
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      editMode = _useState4[0],
+      setEditMode = _useState4[1];
+
+  function toggleDelete() {
+    setShowDelete(!showDelete);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  function toggleEditMode() {
+    setEditMode(!editMode);
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "flex relative pb-12",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "h-full w-10 absolute inset-0 flex items-center justify-center",
-      children: !lastStep && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: !lastStep && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "h-full w-1 bg-gray-200 pointer-events-none"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10 cursor-pointer",
-      onClick: toggleSvg,
-      children: [!deleteSvg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+      className: "flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10 cursor-pointer focus:outline-none focus:ring focus:ring-indigo-300",
+      onClick: toggleDelete,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         className: "h-6 w-6",
         fill: "none",
         viewBox: "0 0 24 24",
         stroke: "currentColor",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
           strokeLinecap: "round",
           strokeLinejoin: "round",
           strokeWidth: "2",
           d: "M5 13l4 4L19 7"
         })
-      }), deleteSvg && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        className: "h-6 w-6",
-        fill: "none",
-        viewBox: "0 0 24 24",
-        stroke: "currentColor",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
-          strokeLinecap: "round",
-          strokeLinejoin: "round",
-          strokeWidth: "2",
-          d: "M6 18L18 6M6 6l12 12"
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      })
+    }), showDelete && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DeleteRecipeStep__WEBPACK_IMPORTED_MODULE_4__.default, {
+      id: step.id
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "flex-grow pl-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
         className: "font-medium title-font text-sm text-gray-900 mb-1 tracking-wider",
         children: ["STEP ", step.step_number]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      }), !editMode ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
         className: "leading-relaxed",
+        onClick: toggleEditMode,
         children: step.instruction
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_TextAreaInput__WEBPACK_IMPORTED_MODULE_2__.default, {
+          value: step.instruction
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "flex items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+            className: "text-xs underline uppercase mt-3 mr-2",
+            onClick: toggleEditMode,
+            children: "Cancel"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_SubmitButton__WEBPACK_IMPORTED_MODULE_3__.default, {
+            text: "Update"
+          })]
+        })]
       })]
     })]
   });
@@ -54659,8 +54754,12 @@ var map = {
 	"./Recipes/AddRecipeStep.js": "./resources/js/Pages/Recipes/AddRecipeStep.js",
 	"./Recipes/Create": "./resources/js/Pages/Recipes/Create.js",
 	"./Recipes/Create.js": "./resources/js/Pages/Recipes/Create.js",
+	"./Recipes/DeleteRecipeStep": "./resources/js/Pages/Recipes/DeleteRecipeStep.js",
+	"./Recipes/DeleteRecipeStep.js": "./resources/js/Pages/Recipes/DeleteRecipeStep.js",
 	"./Recipes/Edit": "./resources/js/Pages/Recipes/Edit.js",
 	"./Recipes/Edit.js": "./resources/js/Pages/Recipes/Edit.js",
+	"./Recipes/EditRecipeStep": "./resources/js/Pages/Recipes/EditRecipeStep.js",
+	"./Recipes/EditRecipeStep.js": "./resources/js/Pages/Recipes/EditRecipeStep.js",
 	"./Recipes/Index": "./resources/js/Pages/Recipes/Index.js",
 	"./Recipes/Index.js": "./resources/js/Pages/Recipes/Index.js",
 	"./Recipes/RecipeCard": "./resources/js/Pages/Recipes/RecipeCard.js",

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Recipe;
+use App\Models\RecipeStep;
 use Illuminate\Http\Request;
 
 class RecipeStepController extends Controller
@@ -14,6 +15,13 @@ class RecipeStepController extends Controller
                 'instruction' => 'required|string|min:2'
             ])
         );
+
+        return back();
+    }
+
+    public function destroy(RecipeStep $recipeStep)
+    {
+        $recipeStep->delete();
 
         return back();
     }

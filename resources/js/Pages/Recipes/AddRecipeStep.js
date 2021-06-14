@@ -6,13 +6,15 @@ import SubmitButton from '../../Components/SubmitButton'
 
 export default function AddRecipeStep() {
     const { recipe } = useContext(RecipeContext)
-    const {data, setData, post, processing, errors} = useForm({
+    const {data, setData, post, processing, reset, errors} = useForm({
         instruction: ''
     })
 
     function submit(e) {
         e.preventDefault()
-        post(`/recipes/${recipe.id}/steps`)
+        post(`/recipes/${recipe.id}/steps`, {
+            onSuccess: () => reset('instruction')
+        })
     }
 
     return (
