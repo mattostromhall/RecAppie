@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import {useForm} from '@inertiajs/inertia-react'
 import TextAreaInput from '../../Components/TextAreaInput'
 import SubmitButton from '../../Components/SubmitButton'
 import DeleteRecipeStep from './DeleteRecipeStep'
+import EditRecipeStep from './EditRecipeStep'
 
 export default function RecipeStep({ step, lastStep }) {
     const [showDelete, setShowDelete] = useState(false)
@@ -38,22 +38,16 @@ export default function RecipeStep({ step, lastStep }) {
                 <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP {step.step_number}</h2>
                 {!editMode ?
                     <p
-                        className="leading-relaxed"
+                        className="leading-relaxed whitespace-pre-line cursor-pointer"
                         onClick={toggleEditMode}
-                    >{step.instruction}</p>
+                    >
+                        {step.instruction}
+                    </p>
                     :
-                    <div>
-                        <TextAreaInput value={step.instruction} />
-                        <div className="flex items-center">
-                            <button
-                                className="text-xs underline uppercase mt-3 mr-2"
-                                onClick={toggleEditMode}
-                            >
-                                Cancel
-                            </button>
-                            <SubmitButton text="Update" />
-                        </div>
-                    </div>
+                    <EditRecipeStep
+                        step={step}
+                        stopEditing={toggleEditMode}
+                    />
                 }
             </div>
         </div>

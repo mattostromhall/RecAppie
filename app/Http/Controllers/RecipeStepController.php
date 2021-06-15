@@ -19,6 +19,17 @@ class RecipeStepController extends Controller
         return back();
     }
 
+    public function update(Request $request, RecipeStep $recipeStep)
+    {
+        $recipeStep->update(
+            $request->validate([
+                'instruction' => 'required|string|min:2'
+            ])
+        );
+
+        return back();
+    }
+
     public function destroy(RecipeStep $recipeStep)
     {
         $recipeStep->delete();

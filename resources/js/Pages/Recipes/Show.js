@@ -12,7 +12,9 @@ export default function Show({ recipe, steps }) {
             <MainNav />
             <RecipeContext.Provider value={{recipe, steps}}>
                 <RecipeInfo />
-                <RecipeSteps />
+                <section className="flex justify-center py-12">
+                    <RecipeSteps />
+                </section>
             </RecipeContext.Provider>
         </App>
     )
