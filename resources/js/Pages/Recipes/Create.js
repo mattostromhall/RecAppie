@@ -5,20 +5,18 @@ import MainNav from '../../Components/MainNav'
 import TextInput from '../../Components/TextInput'
 import TextAreaInput from '../../Components/TextAreaInput'
 import SubmitButton from '../../Components/SubmitButton'
+import NumberInput from '../../Components/NumberInput'
+import SelectInput from '../../Components/SelectInput'
 
-export default function Create() {
+export default function Create({difficulties}) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
-        description: ''
+        description: '',
+        prep: null,
+        cook: null,
+        serves: 1,
+        difficulty: 'easy'
     })
-
-    const handleTitleChange = (e) => {
-        setData('title', e.target.value)
-    }
-
-    const handleDescriptionChange = (e) => {
-        setData('description', e.target.value)
-    }
 
     const submit = (e) => {
         e.preventDefault()
@@ -42,7 +40,7 @@ export default function Create() {
                                     label="Title"
                                     value={data.title}
                                     error={errors.title}
-                                    handleChange={handleTitleChange}
+                                    handleChange={e => setData('title', e.target.value)}
                                 />
                             </div>
                             <div className="mt-3">
@@ -50,7 +48,40 @@ export default function Create() {
                                     label="Description"
                                     value={data.description}
                                     error={errors.description}
-                                    handleChange={handleDescriptionChange}
+                                    handleChange={e => setData('description', e.target.value)}
+                                />
+                            </div>
+                            <div className="mt-3">
+                                <NumberInput
+                                    label="Prep time (mins)"
+                                    value={data.prep}
+                                    error={errors.prep}
+                                    handleChange={e => setData('prep', e.target.value)}
+                                />
+                            </div>
+                            <div className="mt-3">
+                                <NumberInput
+                                    label="Cooking time (mins)"
+                                    value={data.cook}
+                                    error={errors.cook}
+                                    handleChange={e => setData('cook', e.target.value)}
+                                />
+                            </div>
+                            <div className="mt-3">
+                                <NumberInput
+                                    label="Serves"
+                                    value={data.serves}
+                                    error={errors.serves}
+                                    handleChange={e => setData('serves', e.target.value)}
+                                />
+                            </div>
+                            <div className="mt-3">
+                                <SelectInput
+                                    label="Difficulty"
+                                    value={data.difficulty}
+                                    options={difficulties}
+                                    error={errors.difficulty}
+                                    handleChange={e => setData('difficulty', e.target.value)}
                                 />
                             </div>
                             <div className="mt-3">

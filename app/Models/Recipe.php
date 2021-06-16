@@ -40,4 +40,22 @@ class Recipe extends Model
                 return $step;
             });
     }
+
+    public static function difficulties()
+    {
+        return [
+            [
+                'value' => 'easy',
+                'display' => 'Easy'
+            ],
+            [
+                'value' => 'medium',
+                'display' => 'Medium'
+            ],
+            [
+                'value' => 'hard',
+                'display' => 'Hard'
+            ]
+        ];
+    }
 }

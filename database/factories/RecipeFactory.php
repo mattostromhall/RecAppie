@@ -24,7 +24,12 @@ class RecipeFactory extends Factory
     {
         return [
             'title' => $this->faker->text(15),
-            'description' => $this->faker->text()
+            'description' => $this->faker->text(),
+            'prep' => $this->faker->numberBetween(0, 60),
+            'cook' => $this->faker->numberBetween(0, 60),
+            'serves' => $this->faker->numberBetween(1, 10),
+            'difficulty' => $this->faker->randomElement(['easy', 'medium', 'hard']),
+            'picture' => ''
         ];
     }
 }

@@ -20,6 +20,11 @@ class CreateRecipesTable extends Migration
                 ->onDelete('cascade');
             $table->string('title');
             $table->longText('description');
+            $table->unsignedInteger('prep');
+            $table->unsignedInteger('cook');
+            $table->unsignedInteger('serves');
+            $table->enum('difficulty', ['easy', 'medium', 'hard'])->default('easy');
+
             $table->timestamps();
         });
     }
