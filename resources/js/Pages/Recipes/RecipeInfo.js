@@ -16,9 +16,16 @@ export default function RecipeInfo() {
                         Edit
                     </InertiaLink>
                 </div>
-                <div className="flex flex-col text-center w-full">
+                <div className="flex flex-col items-center text-center w-full">
                     <h2 className="uppercase text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Instructions for</h2>
                     <h1 className="uppercase sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{recipe.title}</h1>
+                    {recipe.picture &&
+                        <img
+                            className="w-full max-w-5xl mb-6"
+                            src={`/images/${recipe.picture}`}
+                            alt={recipe.title}
+                        />
+                    }
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">{recipe.description}</p>
                     <div className="flex flex-wrap justify-center text-sm space-x-5 mt-4">
                         <div className="flex">

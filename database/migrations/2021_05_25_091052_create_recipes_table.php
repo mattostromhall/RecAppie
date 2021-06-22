@@ -24,6 +24,7 @@ class CreateRecipesTable extends Migration
             $table->unsignedInteger('cook');
             $table->unsignedInteger('serves');
             $table->enum('difficulty', ['easy', 'medium', 'hard'])->default('easy');
+            $table->string('picture')->nullable();
 
             $table->timestamps();
         });

@@ -12,7 +12,7 @@ class RecipeController extends Controller
     public function index()
     {
         return Inertia::render('Recipes/Index', [
-            'recipes' => Recipe::paginate(15)
+            'recipes' => Recipe::orderBy('id', 'desc')->paginate(15)
         ]);
     }
 

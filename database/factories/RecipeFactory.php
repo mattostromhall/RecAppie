@@ -29,7 +29,7 @@ class RecipeFactory extends Factory
             'cook' => $this->faker->numberBetween(0, 60),
             'serves' => $this->faker->numberBetween(1, 10),
             'difficulty' => $this->faker->randomElement(['easy', 'medium', 'hard']),
-            'picture' => ''
+            'picture' => 'placeholder-picture.jpg'
         ];
     }
 }

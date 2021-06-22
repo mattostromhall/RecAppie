@@ -14,7 +14,7 @@ export default function Index({ recipes }) {
     return (
         <App title="Dashboard | RecAppie">
             <MainNav />
-            <section className="flex flex-wrap space-x-4">
+            <section className="max-w-screen-xl mx-auto grid grid-cols-3 gap-6 p-6">
                 {recipeCards}
             </section>
         </App>

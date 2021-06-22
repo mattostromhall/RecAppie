@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import TextAreaInput from '../../Components/TextAreaInput'
-import SubmitButton from '../../Components/SubmitButton'
 import DeleteRecipeStep from './DeleteRecipeStep'
 import EditRecipeStep from './EditRecipeStep'
 
