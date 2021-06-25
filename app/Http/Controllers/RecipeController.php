@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Inertia\Inertia;
 
 class RecipeController extends Controller
@@ -59,6 +58,7 @@ class RecipeController extends Controller
     {
         return Inertia::render('Recipes/Edit', [
             'recipe' => $recipe,
+            'ingredients' => $recipe->ingredients,
             'steps' => $recipe->orderedSteps()
         ]);
     }

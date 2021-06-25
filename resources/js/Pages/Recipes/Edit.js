@@ -1,11 +1,13 @@
-import React  from 'react'
+import React from 'react'
 import MainNav from '../../Components/MainNav'
 import App from '../../Layouts/App'
 import RecipeSteps from './RecipeSteps'
 import {RecipeContext} from '../../app'
 import AddRecipeStep from './AddRecipeStep'
+import RecipeIngredients from './RecipeIngredients'
+import AddRecipeIngredient from './AddRecipeIngredient'
 
-export default function Edit({ recipe, steps }) {
+export default function Edit({ recipe, ingredients, steps }) {
 
     return (
         <App title={`Edit ${recipe.title} | RecAppie`}>
@@ -19,7 +21,11 @@ export default function Edit({ recipe, steps }) {
                         </div>
                     </div>
                 </section>
-                <section className="flex justify-around py-12">
+                <section className="flex space-x-6 px-6 py-12">
+                    <div>
+                        <AddRecipeIngredient />
+                        <RecipeIngredients />
+                    </div>
                     {steps.length > 0
                         ? <RecipeSteps />
                         : <h2 className="flex items-center font-semibold text-xl">

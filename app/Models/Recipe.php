@@ -11,17 +11,16 @@ class Recipe extends Model
 
     protected $guarded = [];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+    public function ingredients()
+    {
+        return $this->hasMany(Ingredient::class);
+    }
+
     public function steps()
     {
         return $this->hasMany(RecipeStep::class);
