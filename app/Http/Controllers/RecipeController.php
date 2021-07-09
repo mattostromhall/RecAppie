@@ -19,6 +19,7 @@ class RecipeController extends Controller
     {
         return Inertia::render('Recipes/Show', [
             'recipe' => $recipe,
+            'ingredients' => $recipe->ingredients,
             'steps' => $recipe->orderedSteps()
         ]);
     }
