@@ -6,7 +6,7 @@ export default function RecipeSteps() {
     const { steps } = useContext(RecipeContext)
 
     return (
-        <section className="text-gray-600 body-font w-full max-w-2xl">
+        <section className="text-gray-600 body-font w-full max-w-2xl px-3">
             {steps.map((step, index) =>
                 <RecipeStep
                     key={step.id}

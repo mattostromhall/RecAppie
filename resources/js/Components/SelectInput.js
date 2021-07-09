@@ -15,7 +15,6 @@ export default function SelectInput({label, name, value, options, handleChange, 
                 className="block mt-1 p-2 w-full rounded-md shadow-sm border border-gray-300 outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 value={value}
                 onChange={handleChange}
-                required
             >
                 <option>Please select</option>
                 {options.map(option => (

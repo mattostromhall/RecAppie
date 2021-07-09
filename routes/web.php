@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipeStepController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
+
     Route::get('/recipes', [RecipeController::class, 'index'])
         ->name('recipes.index');
     Route::get('/recipes/create', [RecipeController::class, 'create'])
@@ -38,12 +40,18 @@ Route::middleware(['auth'])->group(function() {
         ->name('recipes.store');
     Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])
         ->name('recipes.update');
+
     Route::post('/recipes/{recipe}/steps', [RecipeStepController::class, 'store'])
         ->name('recipes.step.store');
     Route::put('steps/{recipe_step}/update', [RecipeStepController::class, 'update'])
         ->name('recipes.step.update');
     Route::delete('steps/{recipe_step}', [RecipeStepController::class, 'destroy'])
         ->name('recipes.step.destroy');
+
+    Route::post('/recipes/{recipe}/ingredients', [IngredientController::class, 'store'])
+        ->name('recipes.ingredient.store');
+    Route::delete('/ingredients/{ingredient}', [IngredientController::class, 'destroy'])
+        ->name('recipes.ingredient.destroy');
 });
 
 Route::get('/register', [RegisteredUserController::class, 'create'])

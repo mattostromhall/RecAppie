@@ -20,7 +20,7 @@ class CreateIngredientsTable extends Migration
                 ->onDelete('cascade');
             $table->string('name');
             $table->unsignedInteger('quantity');
-            $table->string('unit');
+            $table->string('unit')->nullable();
             $table->timestamps();
         });
     }
