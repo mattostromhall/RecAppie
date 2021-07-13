@@ -1,10 +1,10 @@
 import React from 'react'
 import MainNav from '../../Components/MainNav'
 import App from '../../Layouts/App'
-import RecipeSteps from './RecipeSteps'
+import EditableRecipeSteps from './EditableRecipeSteps'
 import {RecipeContext} from '../../app'
 import AddRecipeStep from './AddRecipeStep'
-import RecipeIngredients from './RecipeIngredients'
+import EditableRecipeIngredients from './EditableRecipeIngredients'
 import AddRecipeIngredient from './AddRecipeIngredient'
 
 export default function Edit({ recipe, ingredients, steps }) {
@@ -24,10 +24,10 @@ export default function Edit({ recipe, ingredients, steps }) {
                 <section className="flex space-x-6 p-12">
                     <div className="w-full max-w-xs">
                         <AddRecipeIngredient />
-                        <RecipeIngredients />
+                        <EditableRecipeIngredients />
                     </div>
                     {steps.length > 0
-                        ? <RecipeSteps />
+                        ? <EditableRecipeSteps />
                         : <div className="flex items-start w-full max-w-2xl px-3">
                             <h2 className="font-semibold text-xl">
                                 Add a recipe step to get started!

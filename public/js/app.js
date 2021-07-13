@@ -3958,16 +3958,21 @@ function AddRecipeIngredient() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
       className: "text-xl font-medium",
       children: "Add Ingredient"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "mt-3",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_TextInput__WEBPACK_IMPORTED_MODULE_4__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_TextInput__WEBPACK_IMPORTED_MODULE_4__.default, {
         label: "Ingredient",
         value: data.name,
         error: errors.name,
         handleChange: function handleChange(e) {
           return setData('name', e.target.value);
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_TextSelectInput__WEBPACK_IMPORTED_MODULE_5__.default, {
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "mt-3",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_TextSelectInput__WEBPACK_IMPORTED_MODULE_5__.default, {
+        textLabel: "Quantity",
+        selectLabel: "Units",
         options: unitOptions,
         error: errors.quantity,
         textValue: data.quantity,
@@ -3978,10 +3983,12 @@ function AddRecipeIngredient() {
         handleSelectChange: function handleSelectChange(e) {
           return setData('unit', e.target.value);
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_SubmitButton__WEBPACK_IMPORTED_MODULE_3__.default, {
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_SubmitButton__WEBPACK_IMPORTED_MODULE_3__.default, {
         text: "Add",
         disabled: processing
-      })]
+      })
     })]
   });
 }
@@ -4326,10 +4333,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Components_MainNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/MainNav */ "./resources/js/Components/MainNav.js");
 /* harmony import */ var _Layouts_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/App */ "./resources/js/Layouts/App.js");
-/* harmony import */ var _RecipeSteps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecipeSteps */ "./resources/js/Pages/Recipes/RecipeSteps.js");
+/* harmony import */ var _EditableRecipeSteps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditableRecipeSteps */ "./resources/js/Pages/Recipes/EditableRecipeSteps.js");
 /* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
 /* harmony import */ var _AddRecipeStep__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddRecipeStep */ "./resources/js/Pages/Recipes/AddRecipeStep.js");
-/* harmony import */ var _RecipeIngredients__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RecipeIngredients */ "./resources/js/Pages/Recipes/RecipeIngredients.js");
+/* harmony import */ var _EditableRecipeIngredients__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditableRecipeIngredients */ "./resources/js/Pages/Recipes/EditableRecipeIngredients.js");
 /* harmony import */ var _AddRecipeIngredient__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AddRecipeIngredient */ "./resources/js/Pages/Recipes/AddRecipeIngredient.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
@@ -4373,8 +4380,8 @@ function Edit(_ref) {
         className: "flex space-x-6 p-12",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "w-full max-w-xs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_AddRecipeIngredient__WEBPACK_IMPORTED_MODULE_7__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_RecipeIngredients__WEBPACK_IMPORTED_MODULE_6__.default, {})]
-        }), steps.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_RecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_AddRecipeIngredient__WEBPACK_IMPORTED_MODULE_7__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditableRecipeIngredients__WEBPACK_IMPORTED_MODULE_6__.default, {})]
+        }), steps.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditableRecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex items-start w-full max-w-2xl px-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
             className: "font-semibold text-xl",
@@ -4461,6 +4468,189 @@ function EditRecipeStep(_ref) {
         disabled: processing
       })]
     })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Recipes/EditableRecipeIngredients.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/Recipes/EditableRecipeIngredients.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ EditableRecipeIngredients)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
+/* harmony import */ var _DeleteRecipeIngredient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DeleteRecipeIngredient */ "./resources/js/Pages/Recipes/DeleteRecipeIngredient.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function EditableRecipeIngredients() {
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_app__WEBPACK_IMPORTED_MODULE_1__.RecipeContext),
+      ingredients = _useContext.ingredients;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    children: [ingredients.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+      className: "font-medium mt-5 mb-3 text-lg",
+      children: "Recipe ingredients"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+      children: ingredients.map(function (ingredient) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+          className: "flex justify-between items-center border-t border-indigo-200 py-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            className: "font-semibold",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              className: "font-bold text-indigo-500",
+              children: [ingredient.quantity, ingredient.unit]
+            }), " ", ingredient.name]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_DeleteRecipeIngredient__WEBPACK_IMPORTED_MODULE_2__.default, {
+            id: ingredient.id
+          })]
+        }, ingredient.id);
+      })
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Recipes/EditableRecipeStep.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/Pages/Recipes/EditableRecipeStep.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ EditableRecipeStep)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _DeleteRecipeStep__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteRecipeStep */ "./resources/js/Pages/Recipes/DeleteRecipeStep.js");
+/* harmony import */ var _EditRecipeStep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditRecipeStep */ "./resources/js/Pages/Recipes/EditRecipeStep.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+function EditableRecipeStep(_ref) {
+  var step = _ref.step,
+      lastStep = _ref.lastStep;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showDelete = _useState2[0],
+      setShowDelete = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      editMode = _useState4[0],
+      setEditMode = _useState4[1];
+
+  function toggleDelete() {
+    setShowDelete(!showDelete);
+  }
+
+  function toggleEditMode() {
+    setEditMode(!editMode);
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "flex relative pb-12",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "h-full w-10 absolute inset-0 flex items-center justify-center",
+      children: !lastStep && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "h-full w-1 bg-gray-200 pointer-events-none"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      className: "flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10 cursor-pointer focus:outline-none focus:ring focus:ring-indigo-300",
+      onClick: toggleDelete,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        className: "h-6 w-6",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        stroke: "currentColor",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: "2",
+          d: "M5 13l4 4L19 7"
+        })
+      })
+    }), showDelete && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_DeleteRecipeStep__WEBPACK_IMPORTED_MODULE_1__.default, {
+      id: step.id
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "flex-grow pl-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+        className: "font-medium title-font text-sm text-gray-900 mb-1 tracking-wider",
+        children: ["STEP ", step.step_number]
+      }), !editMode ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: "leading-relaxed whitespace-pre-line cursor-pointer",
+        onClick: toggleEditMode,
+        children: step.instruction
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_EditRecipeStep__WEBPACK_IMPORTED_MODULE_2__.default, {
+        step: step,
+        stopEditing: toggleEditMode
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Recipes/EditableRecipeSteps.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/Pages/Recipes/EditableRecipeSteps.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ EditableRecipeSteps)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app */ "./resources/js/app.js");
+/* harmony import */ var _EditableRecipeStep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditableRecipeStep */ "./resources/js/Pages/Recipes/EditableRecipeStep.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function EditableRecipeSteps() {
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_app__WEBPACK_IMPORTED_MODULE_1__.RecipeContext),
+      steps = _useContext.steps;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
+    className: "text-gray-600 body-font w-full max-w-2xl px-3",
+    children: steps.map(function (step, index) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_EditableRecipeStep__WEBPACK_IMPORTED_MODULE_2__.default, {
+        step: step,
+        lastStep: steps.length - 1 === index
+      }, step.id);
+    })
   });
 }
 
@@ -4709,22 +4899,24 @@ function RecipeIngredients() {
       ingredients = _useContext.ingredients;
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    className: "text-gray-600 body-font w-full max-w-2xl px-3",
     children: [ingredients.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-      className: "font-medium mt-5 mb-3 text-lg",
+      className: "font-medium mb-3 text-lg px-3",
       children: "Recipe ingredients"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
       children: ingredients.map(function (ingredient) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-          className: "flex justify-between items-center border-t border-indigo-200 py-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+          className: "flex justify-between items-center border-t border-indigo-200 p-3",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
             className: "font-semibold",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-              className: "font-bold text-indigo-500",
+              className: "w-12 h-10 inline-block text-center font-bold rounded p-2 bg-indigo-700 text-indigo-100",
               children: [ingredient.quantity, ingredient.unit]
-            }), " ", ingredient.name]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_DeleteRecipeIngredient__WEBPACK_IMPORTED_MODULE_2__.default, {
-            id: ingredient.id
-          })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "ml-3",
+              children: ingredient.name
+            })]
+          })
         }, ingredient.id);
       })
     })]
@@ -4745,85 +4937,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ RecipeStep)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _DeleteRecipeStep__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteRecipeStep */ "./resources/js/Pages/Recipes/DeleteRecipeStep.js");
-/* harmony import */ var _EditRecipeStep__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditRecipeStep */ "./resources/js/Pages/Recipes/EditRecipeStep.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 function RecipeStep(_ref) {
   var step = _ref.step,
       lastStep = _ref.lastStep;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      showDelete = _useState2[0],
-      setShowDelete = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      editMode = _useState4[0],
-      setEditMode = _useState4[1];
-
-  function toggleDelete() {
-    setShowDelete(!showDelete);
-  }
-
-  function toggleEditMode() {
-    setEditMode(!editMode);
-  }
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "flex relative pb-12",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "h-full w-10 absolute inset-0 flex items-center justify-center",
-      children: !lastStep && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: !lastStep && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "h-full w-1 bg-gray-200 pointer-events-none"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-      className: "flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10 cursor-pointer focus:outline-none focus:ring focus:ring-indigo-300",
-      onClick: toggleDelete,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10 focus:outline-none focus:ring focus:ring-indigo-300",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         className: "h-6 w-6",
         fill: "none",
         viewBox: "0 0 24 24",
         stroke: "currentColor",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
           strokeLinecap: "round",
           strokeLinejoin: "round",
           strokeWidth: "2",
           d: "M5 13l4 4L19 7"
         })
       })
-    }), showDelete && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_DeleteRecipeStep__WEBPACK_IMPORTED_MODULE_1__.default, {
-      id: step.id
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "flex-grow pl-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
         className: "font-medium title-font text-sm text-gray-900 mb-1 tracking-wider",
         children: ["STEP ", step.step_number]
-      }), !editMode ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        className: "leading-relaxed whitespace-pre-line cursor-pointer",
-        onClick: toggleEditMode,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "leading-relaxed whitespace-pre-line",
         children: step.instruction
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_EditRecipeStep__WEBPACK_IMPORTED_MODULE_2__.default, {
-        step: step,
-        stopEditing: toggleEditMode
       })]
     })]
   });
@@ -57241,6 +57391,12 @@ var map = {
 	"./Recipes/Edit.js": "./resources/js/Pages/Recipes/Edit.js",
 	"./Recipes/EditRecipeStep": "./resources/js/Pages/Recipes/EditRecipeStep.js",
 	"./Recipes/EditRecipeStep.js": "./resources/js/Pages/Recipes/EditRecipeStep.js",
+	"./Recipes/EditableRecipeIngredients": "./resources/js/Pages/Recipes/EditableRecipeIngredients.js",
+	"./Recipes/EditableRecipeIngredients.js": "./resources/js/Pages/Recipes/EditableRecipeIngredients.js",
+	"./Recipes/EditableRecipeStep": "./resources/js/Pages/Recipes/EditableRecipeStep.js",
+	"./Recipes/EditableRecipeStep.js": "./resources/js/Pages/Recipes/EditableRecipeStep.js",
+	"./Recipes/EditableRecipeSteps": "./resources/js/Pages/Recipes/EditableRecipeSteps.js",
+	"./Recipes/EditableRecipeSteps.js": "./resources/js/Pages/Recipes/EditableRecipeSteps.js",
 	"./Recipes/Index": "./resources/js/Pages/Recipes/Index.js",
 	"./Recipes/Index.js": "./resources/js/Pages/Recipes/Index.js",
 	"./Recipes/RecipeCard": "./resources/js/Pages/Recipes/RecipeCard.js",

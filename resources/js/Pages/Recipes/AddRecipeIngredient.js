@@ -45,7 +45,11 @@ export default function AddRecipeIngredient() {
                     error={errors.name}
                     handleChange={e => setData('name', e.target.value)}
                 />
+            </div>
+            <div className="mt-3">
                 <TextSelectInput
+                    textLabel="Quantity"
+                    selectLabel="Units"
                     options={unitOptions}
                     error={errors.quantity}
                     textValue={data.quantity}
@@ -53,6 +57,8 @@ export default function AddRecipeIngredient() {
                     handleTextChange={e => setData('quantity', e.target.value)}
                     handleSelectChange={e => setData('unit', e.target.value)}
                 />
+            </div>
+            <div>
                 <SubmitButton
                     text="Add"
                     disabled={processing}
