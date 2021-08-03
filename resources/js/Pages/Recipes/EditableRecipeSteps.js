@@ -6,7 +6,7 @@ export default function EditableRecipeSteps() {
     const { steps } = useContext(RecipeContext)
 
     return (
-        <section className="text-gray-600 body-font w-full max-w-2xl px-3">
+        <section className="text-gray-600 body-font w-full max-w-2xl">
             {steps.map((step, index) =>
                 <EditableRecipeStep
                     key={step.id}

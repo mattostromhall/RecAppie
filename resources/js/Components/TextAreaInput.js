@@ -12,10 +12,10 @@ export default function TextAreaInput({label, name, value, handleChange, error})
             <textarea
                 id={name}
                 name={name}
-                className="block mt-1 p-2 w-full rounded-md shadow-sm border border-gray-300 outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="block mt-1 p-2.5 w-full rounded-md shadow-sm border border-gray-300 outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 value={value}
                 onChange={handleChange}
-                rows="5"
+                rows="4"
             />
             {error && <div className="text-red-600 text-sm mt-1">{error}</div>}
         </div>
