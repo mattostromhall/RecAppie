@@ -6,7 +6,7 @@ export default function RecipeCard({ recipe }) {
         <div className="flex flex-col h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <InertiaLink href={`recipes/${recipe.id}`}>
                 {recipe.picture
-                    ? <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={`/images/${recipe.picture}`} alt={recipe.title} />
+                    ? <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={`/storage/images/${recipe.picture}`} alt={recipe.title} />
                     : <img className="lg:h-48 md:h-36 w-full object-cover object-center" src="https://dummyimage.com/720x400" />
                 }
             </InertiaLink>

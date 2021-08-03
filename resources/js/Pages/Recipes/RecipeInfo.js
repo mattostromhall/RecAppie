@@ -22,7 +22,7 @@ export default function RecipeInfo() {
                     {recipe.picture &&
                         <img
                             className="w-full max-w-5xl mb-6"
-                            src={`/images/${recipe.picture}`}
+                            src={`/storage/images/${recipe.picture}`}
                             alt={recipe.title}
                         />
                     }

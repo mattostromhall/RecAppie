@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\RecipePictureController;
 use App\Http\Controllers\RecipeStepController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -40,6 +41,9 @@ Route::middleware(['auth'])->group(function() {
         ->name('recipes.store');
     Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])
         ->name('recipes.update');
+
+    Route::post('/recipes/{recipe}/picture', RecipePictureController::class)
+        ->name('recipe.picture');
 
     Route::post('/recipes/{recipe}/steps', [RecipeStepController::class, 'store'])
         ->name('recipes.step.store');

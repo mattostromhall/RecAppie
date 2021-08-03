@@ -4338,7 +4338,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddRecipeStep__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AddRecipeStep */ "./resources/js/Pages/Recipes/AddRecipeStep.js");
 /* harmony import */ var _EditableRecipeIngredients__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditableRecipeIngredients */ "./resources/js/Pages/Recipes/EditableRecipeIngredients.js");
 /* harmony import */ var _AddRecipeIngredient__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AddRecipeIngredient */ "./resources/js/Pages/Recipes/AddRecipeIngredient.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _EditRecipePicture__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./EditRecipePicture */ "./resources/js/Pages/Recipes/EditRecipePicture.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -4353,52 +4355,160 @@ function Edit(_ref) {
   var recipe = _ref.recipe,
       ingredients = _ref.ingredients,
       steps = _ref.steps;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
     title: "Edit ".concat(recipe.title, " | RecAppie"),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_app__WEBPACK_IMPORTED_MODULE_4__.RecipeContext.Provider, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_app__WEBPACK_IMPORTED_MODULE_4__.RecipeContext.Provider, {
       value: {
         recipe: recipe,
         ingredients: ingredients,
         steps: steps
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("section", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("section", {
         className: "text-gray-600 body-font",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "container px-5 pt-12 mx-auto",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "flex flex-col text-center w-full",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
               className: "uppercase text-xs text-indigo-500 tracking-widest font-medium title-font mb-1",
               children: "Edit"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h1", {
               className: "uppercase sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900",
               children: recipe.title
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditRecipePicture__WEBPACK_IMPORTED_MODULE_8__.default, {
+              recipe: recipe
             })]
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("section", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("section", {
         className: "flex space-x-6 p-12",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "w-full max-w-xs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_AddRecipeIngredient__WEBPACK_IMPORTED_MODULE_7__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditableRecipeIngredients__WEBPACK_IMPORTED_MODULE_6__.default, {})]
-        }), steps.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_EditableRecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_AddRecipeIngredient__WEBPACK_IMPORTED_MODULE_7__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditableRecipeIngredients__WEBPACK_IMPORTED_MODULE_6__.default, {})]
+        }), steps.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_EditableRecipeSteps__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "flex items-start w-full max-w-2xl px-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
             className: "font-semibold text-xl",
             children: "Add a recipe step to get started!"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             className: "h-5 w-5 mt-0.5 ml-2 text-indigo-500",
             viewBox: "0 0 20 20",
             fill: "currentColor",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
               fillRule: "evenodd",
               d: "M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z",
               clipRule: "evenodd"
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_AddRecipeStep__WEBPACK_IMPORTED_MODULE_5__.default, {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_AddRecipeStep__WEBPACK_IMPORTED_MODULE_5__.default, {})]
       })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Recipes/EditRecipePicture.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/Pages/Recipes/EditRecipePicture.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ EditRecipePicture)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+function EditRecipePicture(_ref) {
+  var recipe = _ref.recipe;
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+    picture: null
+  }),
+      setData = _useForm.setData,
+      post = _useForm.post;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(recipe.picture ? "/storage/images/".concat(recipe.picture) : 'https://dummyimage.com/720x400'),
+      _useState2 = _slicedToArray(_useState, 2),
+      picture = _useState2[0],
+      setPicture = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      selected = _useState4[0],
+      setSelected = _useState4[1];
+
+  function handlePictureChange(e) {
+    setData('picture', e.target.files[0]);
+    setPicture(URL.createObjectURL(e.target.files[0]));
+    setSelected(true);
+  }
+
+  function uploadPicture(e) {
+    e.preventDefault();
+    post("/recipes/".concat(recipe.id, "/picture"), {
+      onSuccess: function onSuccess() {
+        return setSelected(false);
+      }
+    });
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+    onSubmit: uploadPicture,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "flex justify-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "relative w-48 rounded-sm",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "absolute inset-0 rounded-sm bg-gray-700 bg-opacity-60 z-10 flex items-center justify-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
+            xmlns: "http://www.w3.org/2000/svg",
+            className: "h-5 w-5 text-indigo-100",
+            viewBox: "0 0 20 20",
+            fill: "currentColor",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+              d: "M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+              fillRule: "evenodd",
+              d: "M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z",
+              clipRule: "evenodd"
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+          className: "w-48 rounded-sm opacity-75",
+          src: picture,
+          alt: ""
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          className: "absolute w-48 overflow-hidden h-full opacity-0 top-0 left-0 z-10 rounded-sm cursor-pointer",
+          type: "file",
+          onChange: handlePictureChange
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      className: "inline-flex items-center mt-3 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150",
+      type: "submit",
+      disabled: !selected,
+      children: "Upload"
     })]
   });
 }
@@ -4722,7 +4832,7 @@ function RecipeCard(_ref) {
       href: "recipes/".concat(recipe.id),
       children: recipe.picture ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "lg:h-48 md:h-36 w-full object-cover object-center",
-        src: "/images/".concat(recipe.picture),
+        src: "/storage/images/".concat(recipe.picture),
         alt: recipe.title
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "lg:h-48 md:h-36 w-full object-cover object-center",
@@ -4808,7 +4918,7 @@ function RecipeInfo() {
           children: recipe.title
         }), recipe.picture && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
           className: "w-full max-w-5xl mb-6",
-          src: "/images/".concat(recipe.picture),
+          src: "/storage/images/".concat(recipe.picture),
           alt: recipe.title
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
           className: "lg:w-2/3 mx-auto leading-relaxed text-base",
@@ -57389,6 +57499,8 @@ var map = {
 	"./Recipes/DeleteRecipeStep.js": "./resources/js/Pages/Recipes/DeleteRecipeStep.js",
 	"./Recipes/Edit": "./resources/js/Pages/Recipes/Edit.js",
 	"./Recipes/Edit.js": "./resources/js/Pages/Recipes/Edit.js",
+	"./Recipes/EditRecipePicture": "./resources/js/Pages/Recipes/EditRecipePicture.js",
+	"./Recipes/EditRecipePicture.js": "./resources/js/Pages/Recipes/EditRecipePicture.js",
 	"./Recipes/EditRecipeStep": "./resources/js/Pages/Recipes/EditRecipeStep.js",
 	"./Recipes/EditRecipeStep.js": "./resources/js/Pages/Recipes/EditRecipeStep.js",
 	"./Recipes/EditableRecipeIngredients": "./resources/js/Pages/Recipes/EditableRecipeIngredients.js",

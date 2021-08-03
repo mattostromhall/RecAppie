@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import MainNav from '../../Components/MainNav'
 import App from '../../Layouts/App'
 import EditableRecipeSteps from './EditableRecipeSteps'
@@ -6,9 +6,9 @@ import {RecipeContext} from '../../app'
 import AddRecipeStep from './AddRecipeStep'
 import EditableRecipeIngredients from './EditableRecipeIngredients'
 import AddRecipeIngredient from './AddRecipeIngredient'
+import EditRecipePicture from './EditRecipePicture'
 
 export default function Edit({ recipe, ingredients, steps }) {
-
     return (
         <App title={`Edit ${recipe.title} | RecAppie`}>
             <MainNav />
@@ -18,6 +18,7 @@ export default function Edit({ recipe, ingredients, steps }) {
                         <div className="flex flex-col text-center w-full">
                             <h2 className="uppercase text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Edit</h2>
                             <h1 className="uppercase sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{recipe.title}</h1>
+                            <EditRecipePicture recipe={recipe} />
                         </div>
                     </div>
                 </section>
