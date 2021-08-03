@@ -11,7 +11,7 @@ class RecipeController extends Controller
     public function index()
     {
         return Inertia::render('Recipes/Index', [
-            'recipes' => Recipe::orderBy('id', 'desc')->paginate(15)
+            'recipes' => Recipe::orderBy('id', 'desc')->paginate(9)
         ]);
     }
 
@@ -20,7 +20,8 @@ class RecipeController extends Controller
         return Inertia::render('Recipes/Show', [
             'recipe' => $recipe,
             'ingredients' => $recipe->ingredients,
-            'steps' => $recipe->orderedSteps()
+            'steps' => $recipe->orderedSteps(),
+            'author' => auth()->user()->can('edit', $recipe)
         ]);
     }
 
@@ -57,6 +58,8 @@ class RecipeController extends Controller
 
     public function edit(Recipe $recipe)
     {
+        $this->authorize('edit', $recipe);
+
         return Inertia::render('Recipes/Edit', [
             'recipe' => $recipe,
             'ingredients' => $recipe->ingredients,

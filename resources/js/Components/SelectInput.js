@@ -18,7 +18,7 @@ export default function SelectInput({label, name, value, options, handleChange, 
             >
                 <option>Please select</option>
                 {options.map(option => (
-                        <option value={option.value}>{option.display}</option>
+                        <option key={option.value} value={option.value}>{option.display}</option>
                     )
                 )}
             </select>

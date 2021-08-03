@@ -12,8 +12,8 @@ export default function Create({difficulties}) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
         description: '',
-        prep: null,
-        cook: null,
+        prep: 0,
+        cook: 0,
         serves: 1,
         difficulty: 'easy'
     })
