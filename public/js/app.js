@@ -3191,7 +3191,7 @@ function Pagination(_ref) {
     }
 
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.InertiaLink, {
-      className: "mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500",
+      className: "mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500 ".concat(link.active ? 'bg-white border-indigo-500 text-indigo-500' : ''),
       href: link.url,
       dangerouslySetInnerHTML: {
         __html: link.label
@@ -4910,11 +4910,14 @@ function Index(_ref) {
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_Layouts_App__WEBPACK_IMPORTED_MODULE_2__.default, {
     title: "Dashboard | RecAppie",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_MainNav__WEBPACK_IMPORTED_MODULE_1__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("section", {
       className: "max-w-screen-xl mx-auto grid grid-cols-3 gap-6 p-6",
-      children: [recipeCards, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Pagination__WEBPACK_IMPORTED_MODULE_4__.default, {
+      children: recipeCards
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("section", {
+      className: "max-w-screen-xl mx-auto p-6",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Pagination__WEBPACK_IMPORTED_MODULE_4__.default, {
         links: recipes.links
-      })]
+      })
     })]
   });
 }

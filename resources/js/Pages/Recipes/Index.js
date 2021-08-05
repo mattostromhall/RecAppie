@@ -17,6 +17,8 @@ export default function Index({ recipes }) {
             <MainNav />
             <section className="max-w-screen-xl mx-auto grid grid-cols-3 gap-6 p-6">
                 {recipeCards}
+            </section>
+            <section className="max-w-screen-xl mx-auto p-6">
                 <Pagination links={recipes.links} />
             </section>
         </App>
