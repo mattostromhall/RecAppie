@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Recipe;
 use App\Models\RecipeStep;
 use App\Models\User;
@@ -22,6 +23,9 @@ class DatabaseSeeder extends Seeder
                     ->has(RecipeStep::factory()->count(5), 'steps')
                     ->count(5)
             )
+            ->create();
+        Category::factory()
+            ->count(8)
             ->create();
     }
 }

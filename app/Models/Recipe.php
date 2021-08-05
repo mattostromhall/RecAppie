@@ -26,6 +26,11 @@ class Recipe extends Model
         return $this->hasMany(RecipeStep::class);
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
     public function orderedSteps()
     {
         return $this->steps()
