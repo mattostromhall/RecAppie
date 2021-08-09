@@ -27,7 +27,7 @@ export default function Edit({ recipe, ingredients, steps }) {
                         <div className="flex flex-col text-center w-full">
                             <h2 className="uppercase text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Edit</h2>
                             <h1 className="uppercase sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">{recipe.title}</h1>
-                            <EditRecipePicture recipe={recipe} />
+                            <EditRecipePicture />
                             <div className="flex flex-wrap justify-center text-sm space-x-5 mt-4">
                                 <div className="flex">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">

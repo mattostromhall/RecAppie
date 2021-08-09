@@ -23,7 +23,7 @@ export default function EditableRecipeStep({ step, lastStep }) {
             </div>
             <button
                 className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10 cursor-pointer focus:outline-none focus:ring focus:ring-indigo-300"
-                onClick={toggleDelete}
+                onDoubleClick={toggleDelete}
             >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -37,7 +37,7 @@ export default function EditableRecipeStep({ step, lastStep }) {
                 {!editMode ?
                     <p
                         className="leading-relaxed whitespace-pre-line cursor-pointer"
-                        onClick={toggleEditMode}
+                        onDoubleClick={toggleEditMode}
                     >
                         {step.instruction}
                     </p>

@@ -7,6 +7,7 @@ import TextAreaInput from '../../Components/TextAreaInput'
 import SubmitButton from '../../Components/SubmitButton'
 import NumberInput from '../../Components/NumberInput'
 import SelectInput from '../../Components/SelectInput'
+import MultiSelectInput from '../../Components/MultiSelectInput'
 
 export default function Create({difficulties}) {
     const { data, setData, post, processing, errors } = useForm({
@@ -83,6 +84,9 @@ export default function Create({difficulties}) {
                                     error={errors.difficulty}
                                     handleChange={e => setData('difficulty', e.target.value)}
                                 />
+                            </div>
+                            <div className="mt-3">
+                                <MultiSelectInput />
                             </div>
                             <div className="mt-3">
                                 <SubmitButton

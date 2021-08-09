@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import {useForm} from '@inertiajs/inertia-react'
+import {RecipeContext} from '../../app'
 
-export default function EditRecipePicture({ recipe }) {
+export default function EditRecipePicture() {
+    const { recipe } = useContext(RecipeContext)
     const { setData, post } = useForm({
         picture: null,
     })
