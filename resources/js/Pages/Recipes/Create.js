@@ -9,7 +9,7 @@ import NumberInput from '../../Components/NumberInput'
 import SelectInput from '../../Components/SelectInput'
 import MultiSelectInput from '../../Components/MultiSelectInput'
 
-export default function Create({difficulties}) {
+export default function Create({categories, difficulties}) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
         description: '',
@@ -86,7 +86,9 @@ export default function Create({difficulties}) {
                                 />
                             </div>
                             <div className="mt-3">
-                                <MultiSelectInput />
+                                <MultiSelectInput
+                                    options={categories}
+                                />
                             </div>
                             <div className="mt-3">
                                 <SubmitButton
