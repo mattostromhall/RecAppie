@@ -3,9 +3,10 @@ import {createPopper} from '@popperjs/core'
 
 export default function MultiSelectInput({values = [], setValues, options, displayKey = 'name', valueKey = 'id'}) {
     const [isOpen, setIsOpen] = useState(false)
+    const [search, setSearch] = useState('')
     const displayValues = useRef(null)
     const dropdown = useRef(null)
-    const search = useRef(null)
+    const searchInput = useRef(null)
     const selectOptions = useRef(null)
     let popper = undefined
     const valuesHtml = values.map(value => (
@@ -25,13 +26,50 @@ export default function MultiSelectInput({values = [], setValues, options, displ
 
     useEffect(() => {
         if (isOpen) {
-            search.current.focus()
+            searchInput.current.focus()
             setupPopper()
         }
     }, [isOpen])
 
     function open() {
         setIsOpen(true)
+    }
+
+    function close() {
+        if(!isOpen) return
+        setIsOpen(false)
+        displayValues.current.focus()
+    }
+
+    function selectHighlighted() {
+
+    }
+
+    function highlightPrev() {
+
+    }
+
+    function highlightNext() {
+
+    }
+
+    function handleSearchKeyDown(e) {
+        if (e.key === 'Escape') {
+            close()
+        }
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            selectHighlighted()
+        }
+        if (e.key === 'ArrowUp') {
+            highlightPrev()
+        }
+        if (e.key === 'ArrowDown') {
+            highlightNext()
+        }
+        if (e.key === 'Tab') {
+            e.preventDefault()
+        }
     }
 
     function handleBackspace(e) {
@@ -66,7 +104,6 @@ export default function MultiSelectInput({values = [], setValues, options, displ
         return displayKey ? option[displayKey] : option
     }
 
-
     return (
         <div className="relative">
             <button
@@ -93,7 +130,10 @@ export default function MultiSelectInput({values = [], setValues, options, displ
                         className="block mt-1 p-2 w-full rounded-md shadow-sm border border-gray-300 outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         type="text"
                         placeholder="Search..."
-                        ref={search}
+                        ref={searchInput}
+                        value={search}
+                        onChange={e => setSearch(e.target.value)}
+                        onKeyDown={handleSearchKeyDown}
                     />
                     <ul
                         className="relative overflow-y-auto max-h-24 cursor-pointer"
