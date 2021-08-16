@@ -1,9 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {createPopper} from '@popperjs/core'
 
-export default function MultiSelectInput({values = [], setValues, options, displayKey = 'name', valueKey = 'id'}) {
+export default function MultiSelectInput({values = [], setValues, options, displayKey = 'name', keyValue = 'id'}) {
     const [isOpen, setIsOpen] = useState(false)
     const [search, setSearch] = useState('')
+    const [highlightedIndex, setHighlightedIndex] = useState(0)
     const displayValues = useRef(null)
     const dropdown = useRef(null)
     const searchInput = useRef(null)
@@ -15,9 +16,10 @@ export default function MultiSelectInput({values = [], setValues, options, displ
             <span className="mb-0.5 ml-1 text-base leading-none">&times;</span>
         </span>)
     )
-    const optionsHtml = options.map(option => (
+    const filteredOptions = useMemo(() => filterOptions(), [options, search])
+    const optionsHtml = filteredOptions.map((option, index) => (
         <li
-            className={`mt-1 py-2 px-3 rounded hover:bg-gray-200`}
+            className={`mt-1 py-2 px-3 rounded hover:bg-gray-200 ${index === highlightedIndex ? 'bg-gray-200' : ''}`}
             key={value(option)}
         >
             {display(option)}
@@ -31,6 +33,25 @@ export default function MultiSelectInput({values = [], setValues, options, displ
         }
     }, [isOpen])
 
+    function filterOptions() {
+        return options.filter(option => {
+            if (typeof option === 'object') {
+                return matchObjectOption(option)
+            }
+            return matchOption(option)
+        })
+    }
+
+    function matchObjectOption(option) {
+        return option[displayKey].toLowerCase().startsWith(search.toLowerCase())
+            && !values.includes(value(option))
+    }
+
+    function matchOption(option) {
+        return option.toLowerCase().startsWith(search.toLowerCase())
+            && !values.includes(option)
+    }
+
     function open() {
         setIsOpen(true)
     }
@@ -41,16 +62,43 @@ export default function MultiSelectInput({values = [], setValues, options, displ
         displayValues.current.focus()
     }
 
-    function selectHighlighted() {
+    function select(option) {
+        setValues(prevValues => [...prevValues, option])
+        setSearch('')
+        setHighlightedIndex(0)
+        close()
+    }
 
+    function selectHighlighted() {
+        select(filteredOptions[highlightedIndex])
+    }
+
+    function scrollToHighlighted() {
+        selectOptions.current.children[highlightedIndex].scrollIntoView({
+            block: "nearest"
+        })
+    }
+
+    function highlight(index) {
+        setHighlightedIndex(index)
+
+        if (highlightedIndex < 0) {
+            setHighlightedIndex(filteredOptions.length - 1)
+        }
+
+        if (highlightedIndex > filteredOptions.length - 1) {
+            setHighlightedIndex(0)
+        }
+
+        scrollToHighlighted()
     }
 
     function highlightPrev() {
-
+        highlight(highlightedIndex - 1)
     }
 
     function highlightNext() {
-
+        highlight(highlightedIndex + 1)
     }
 
     function handleSearchKeyDown(e) {
@@ -97,7 +145,7 @@ export default function MultiSelectInput({values = [], setValues, options, displ
     }
 
     function value(option) {
-        return valueKey ? option[valueKey] : option
+        return keyValue ? option[keyValue] : option
     }
 
     function display(option) {
@@ -135,13 +183,19 @@ export default function MultiSelectInput({values = [], setValues, options, displ
                         onChange={e => setSearch(e.target.value)}
                         onKeyDown={handleSearchKeyDown}
                     />
-                    <ul
-                        className="relative overflow-y-auto max-h-24 cursor-pointer"
-                        ref={selectOptions}
-                    >
-                        {optionsHtml}
-                </ul>
-
+                    {filteredOptions.length > 0 &&
+                        <ul
+                            className="relative overflow-y-auto max-h-24 cursor-pointer"
+                            ref={selectOptions}
+                        >
+                            {optionsHtml}
+                        </ul>
+                    }
+                    {filteredOptions.length === 0 &&
+                        <div className="mt-2 py-2 px-3">
+                            No results found {search.length > 0 && <span>for "{search}"</span>}
+                        </div>
+                    }
                 </div>
             }
             </div>
