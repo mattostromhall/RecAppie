@@ -16,7 +16,8 @@ export default function Create({categories, difficulties}) {
         prep: 0,
         cook: 0,
         serves: 1,
-        difficulty: 'easy'
+        difficulty: 'easy',
+        categories: []
     })
 
     const submit = (e) => {
@@ -34,7 +35,7 @@ export default function Create({categories, difficulties}) {
                             <h1 className="uppercase sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Recipe</h1>
                         </div>
                     </div>
-                    <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                    <div className="w-full sm:max-w-md my-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
                         <form onSubmit={submit}>
                             <div>
                                 <TextInput
@@ -88,6 +89,8 @@ export default function Create({categories, difficulties}) {
                             <div className="mt-3">
                                 <MultiSelectInput
                                     options={categories}
+                                    values={data.categories}
+                                    setValues={(values) => setData('categories', values)}
                                 />
                             </div>
                             <div className="mt-3">

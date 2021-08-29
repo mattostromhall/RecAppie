@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {createPopper} from '@popperjs/core'
 
-export default function MultiSelectInput({values = [], setValues, options, displayKey = 'name', keyValue = 'id'}) {
+export default function MultiSelectInput({values = [], setValues, options, displayKey = 'name', valueKey = 'id'}) {
     const [isOpen, setIsOpen] = useState(false)
     const [search, setSearch] = useState('')
     const [highlightedIndex, setHighlightedIndex] = useState(0)
@@ -11,16 +11,20 @@ export default function MultiSelectInput({values = [], setValues, options, displ
     const selectOptions = useRef(null)
     let popper = undefined
     const valuesHtml = values.map(value => (
-        <span key={value} className="flex items-center bg-indigo-200 rounded py-0.5 px-1 my-0.5 select-none">
-            <span>{value}</span>
-            <span className="mb-0.5 ml-1 text-base leading-none">&times;</span>
+        <span key={valueKey ? value[valueKey] : value} className="flex items-center bg-indigo-200 rounded py-0.5 px-1 my-0.5 select-none">
+            <span>{display(value)}</span>
+            <span
+                className="mb-0.5 ml-1 text-base leading-none"
+                onClick={(e) => deselect(e, value)}
+            >&times;</span>
         </span>)
     )
-    const filteredOptions = useMemo(() => filterOptions(), [options, search])
+    const filteredOptions = useMemo(() => filterOptions(), [values, options, search])
     const optionsHtml = filteredOptions.map((option, index) => (
         <li
             className={`mt-1 py-2 px-3 rounded hover:bg-gray-200 ${index === highlightedIndex ? 'bg-gray-200' : ''}`}
-            key={value(option)}
+            key={optionValue(option)}
+            onClick={() => select(option)}
         >
             {display(option)}
         </li>)
@@ -44,7 +48,7 @@ export default function MultiSelectInput({values = [], setValues, options, displ
 
     function matchObjectOption(option) {
         return option[displayKey].toLowerCase().startsWith(search.toLowerCase())
-            && !values.includes(value(option))
+            && values.filter(value => optionValue(value) === optionValue(option)).length === 0
     }
 
     function matchOption(option) {
@@ -62,58 +66,31 @@ export default function MultiSelectInput({values = [], setValues, options, displ
         displayValues.current.focus()
     }
 
+    function toggle() {
+        if(!isOpen) {
+            return open()
+        }
+        return close()
+    }
+
     function select(option) {
-        setValues(prevValues => [...prevValues, option])
+        setValues([...values, option])
         setSearch('')
         setHighlightedIndex(0)
         close()
     }
 
-    function selectHighlighted() {
-        select(filteredOptions[highlightedIndex])
-    }
-
-    function scrollToHighlighted() {
-        selectOptions.current.children[highlightedIndex].scrollIntoView({
-            block: "nearest"
+    function deselect(e, option) {
+        e.stopPropagation()
+        const newValues = values.filter(value => {
+            return optionValue(value) !== optionValue(option)
         })
-    }
-
-    function highlight(index) {
-        setHighlightedIndex(index)
-
-        if (highlightedIndex < 0) {
-            setHighlightedIndex(filteredOptions.length - 1)
-        }
-
-        if (highlightedIndex > filteredOptions.length - 1) {
-            setHighlightedIndex(0)
-        }
-
-        scrollToHighlighted()
-    }
-
-    function highlightPrev() {
-        highlight(highlightedIndex - 1)
-    }
-
-    function highlightNext() {
-        highlight(highlightedIndex + 1)
+        setValues(newValues)
     }
 
     function handleSearchKeyDown(e) {
         if (e.key === 'Escape') {
             close()
-        }
-        if (e.key === 'Enter') {
-            e.preventDefault()
-            selectHighlighted()
-        }
-        if (e.key === 'ArrowUp') {
-            highlightPrev()
-        }
-        if (e.key === 'ArrowDown') {
-            highlightNext()
         }
         if (e.key === 'Tab') {
             e.preventDefault()
@@ -122,7 +99,7 @@ export default function MultiSelectInput({values = [], setValues, options, displ
 
     function handleBackspace(e) {
         if (e.key === 'Backspace') {
-            console.log('backspace')
+            setValues(values.slice(0, -1))
         }
     }
 
@@ -144,8 +121,8 @@ export default function MultiSelectInput({values = [], setValues, options, displ
         }
     }
 
-    function value(option) {
-        return keyValue ? option[keyValue] : option
+    function optionValue(option) {
+        return valueKey ? option[valueKey] : option
     }
 
     function display(option) {
@@ -158,7 +135,7 @@ export default function MultiSelectInput({values = [], setValues, options, displ
                 className={`w-full flex flex-wrap items-center space-x-1 text-left p-1 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
                 type="button"
                 ref={displayValues}
-                onClick={open}
+                onClick={toggle}
                 onKeyDown={handleBackspace}
             >
                 {values.length > 0 ? (
