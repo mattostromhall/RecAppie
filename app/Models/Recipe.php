@@ -28,7 +28,17 @@ class Recipe extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class)
+            ->withTimestamps();
+    }
+
+    public function attachCategories(Array $categories)
+    {
+        $ids = collect($categories)->map(function($category) {
+           return $category['id'];
+        })->toArray();
+
+        $this->categories()->attach($ids);
     }
 
     public function orderedSteps()

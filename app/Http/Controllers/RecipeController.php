@@ -46,12 +46,14 @@ class RecipeController extends Controller
                 if (!in_array($value, ['easy', 'medium', 'hard'])) {
                     $fail('The '.$attribute.' is not a valid difficulty.');
                 }
-            }],
+            }]
         ]);
 
         $validated['user_id'] = auth()->id();
 
         $recipe = Recipe::create($validated);
+
+        $recipe->attachCategories($request->categories);
 
         return redirect(
             route('recipes.edit', $recipe)

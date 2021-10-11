@@ -22,7 +22,7 @@ export default function MultiSelectInput({values = [], setValues, options, displ
     const filteredOptions = useMemo(() => filterOptions(), [values, options, search])
     const optionsHtml = filteredOptions.map((option, index) => (
         <li
-            className={`mt-1 py-2 px-3 rounded hover:bg-gray-200 ${index === highlightedIndex ? 'bg-gray-200' : ''}`}
+            className={`mt-1 py-2 px-3 rounded hover:bg-indigo-500 hover:text-indigo-100 ${index === highlightedIndex ? 'bg-indigo-500 text-indigo-100' : ''}`}
             key={optionValue(option)}
             onClick={() => select(option)}
         >
