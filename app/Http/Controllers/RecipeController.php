@@ -9,10 +9,14 @@ use Inertia\Inertia;
 
 class RecipeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('Recipes/Index', [
-            'recipes' => Recipe::orderBy('id', 'desc')->paginate(9)
+            'recipes' => Recipe::orderBy('id', 'desc')
+                ->when($request->search, function($query, $search) {
+                    return $query->where('title', 'like', $search . '%');
+                })
+                ->paginate(9)
         ]);
     }
 

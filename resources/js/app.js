@@ -9,7 +9,7 @@ InertiaProgress.init({
     delay: 0,
     color: 'rgb(99, 102, 241)',
     includeCSS: true,
-    showSpinner: false,
+    showSpinner: true,
 })
 
 const el = document.getElementById('app')
