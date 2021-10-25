@@ -12,11 +12,17 @@ class RecipeController extends Controller
     public function index(Request $request)
     {
         return Inertia::render('Recipes/Index', [
-            'recipes' => Recipe::orderBy('id', 'desc')
+            'recipes' => Recipe::query()
+                ->orderBy('id', 'desc')
                 ->when($request->search, function($query, $search) {
                     return $query->where('title', 'like', $search . '%');
                 })
-                ->paginate(9)
+                ->when($request->categories, function($query, $categories) {
+                    dd(collect($categories));
+                    dd(collect($categories)->map(fn($category) => $category['id'])->join(','));
+                })
+                ->paginate(9),
+            'categories' => Category::all(),
         ]);
     }
 

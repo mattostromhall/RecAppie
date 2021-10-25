@@ -7,8 +7,9 @@ import RecipeFilters from './RecipeFilters'
 import {Inertia} from '@inertiajs/inertia'
 import useDebounce from '../../hooks/useDebounce'
 
-export default function Index({ recipes }) {
+export default function Index({recipes, categories}) {
     const [search, setSearch] = useState('')
+    const [selectedCategories, setSelectedCategories] = useState([])
     const debouncedSearch = useDebounce(search)
 
     const recipeCards = recipes.data.map(recipe => (
@@ -21,14 +22,21 @@ export default function Index({ recipes }) {
         <p>No results found for: {search}</p>
     </div>
 
-    useEffect(() => {
-            Inertia.get('recipes', {
-                search: debouncedSearch
-            }, {
-                preserveState: true
-            })
-        },
+    function filterRecipes() {
+        Inertia.get('recipes', {
+            search: debouncedSearch,
+            categories: selectedCategories
+        }, {
+            preserveState: true
+        })
+    }
+
+    useEffect(filterRecipes,
         [debouncedSearch]
+    );
+
+    useEffect(filterRecipes,
+        [selectedCategories]
     );
 
     return (
@@ -37,6 +45,9 @@ export default function Index({ recipes }) {
             <RecipeFilters
                 search={search}
                 setSearch={setSearch}
+                categories={categories}
+                selectedCategories={selectedCategories}
+                setSelectedCategories={setSelectedCategories}
             />
             <section className="max-w-screen-xl mx-auto grid grid-cols-3 gap-6 p-6">
                 {recipes.data.length > 0

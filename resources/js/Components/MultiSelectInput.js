@@ -132,7 +132,7 @@ export default function MultiSelectInput({values = [], setValues, options, displ
     return (
         <div className="relative">
             <button
-                className={`w-full flex flex-wrap items-center space-x-1 text-left p-1 rounded-md shadow-sm border border-gray-300 focus:outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
+                className={`w-full flex flex-wrap items-center space-x-1 text-left p-1 rounded-md shadow-sm bg-white border border-gray-300 focus:outline-none focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50`}
                 type="button"
                 ref={displayValues}
                 onClick={toggle}

@@ -34,9 +34,9 @@ class Recipe extends Model
 
     public function attachCategories(Array $categories)
     {
-        $ids = collect($categories)->map(function($category) {
-           return $category['id'];
-        })->toArray();
+        $ids = collect($categories)
+            ->map(fn($category) => $category['id'])
+            ->toArray();
 
         $this->categories()->attach($ids);
     }
