@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Recipe;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -18,8 +19,9 @@ class RecipeController extends Controller
                     return $query->where('title', 'like', $search . '%');
                 })
                 ->when($request->categories, function($query, $categories) {
-                    dd(collect($categories));
-                    dd(collect($categories)->map(fn($category) => $category['id'])->join(','));
+                    return $query->whereHas('categories', function (Builder $query) use ($categories) {
+                        $query->whereIn('category_id', explode(',', $categories));
+                    });
                 })
                 ->paginate(9),
             'categories' => Category::all(),

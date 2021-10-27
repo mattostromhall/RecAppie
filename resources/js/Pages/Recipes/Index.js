@@ -11,6 +11,7 @@ export default function Index({recipes, categories}) {
     const [search, setSearch] = useState('')
     const [selectedCategories, setSelectedCategories] = useState([])
     const debouncedSearch = useDebounce(search)
+    const selectedCategoryIds = selectedCategories.map(category => category.id).join()
 
     const recipeCards = recipes.data.map(recipe => (
         <RecipeCard
@@ -25,7 +26,7 @@ export default function Index({recipes, categories}) {
     function filterRecipes() {
         Inertia.get('recipes', {
             search: debouncedSearch,
-            categories: selectedCategories
+            categories: selectedCategoryIds
         }, {
             preserveState: true
         })
