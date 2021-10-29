@@ -23,7 +23,8 @@ class RecipeController extends Controller
                         $query->whereIn('category_id', explode(',', $categories));
                     });
                 })
-                ->paginate(9),
+                ->paginate(9)
+                ->withQueryString(),
             'categories' => Category::all(),
         ]);
     }
