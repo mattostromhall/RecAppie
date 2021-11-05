@@ -31,7 +31,11 @@ return [
     ],
     'nutrition' => [
         'provider' => [
-            'key' => env('NUTRITION_PROVIDER_KEY')
+            'base_url' => env('NUTRITION_PROVIDER_BASE_URL'),
+            'key' => env('NUTRITION_PROVIDER_KEY'),
+            'timeout' => env('NUTRITION_PROVIDER_TIMEOUT'),
+            'retry_times' => env('NUTRITION_PROVIDER_RETRY_TIMES'),
+            'retry_sleep' => env('NUTRITION_PROVIDER_RETRY_SLEEP')
         ]
     ]
 
