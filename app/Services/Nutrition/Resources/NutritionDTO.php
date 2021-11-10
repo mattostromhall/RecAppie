@@ -10,7 +10,8 @@ class NutritionDTO
         public int $carbohydrates,
         public int $fat,
         public int $protein
-    ) {
+    )
+    {
         //
     }
 }

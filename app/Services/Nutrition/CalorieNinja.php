@@ -17,7 +17,8 @@ class CalorieNinja implements NutritionProvider
         protected int $timeout = 10,
         protected int|null $retryTimes = null,
         protected int|null $retrySleep = null
-    ) {
+    )
+    {
         //
     }
 
