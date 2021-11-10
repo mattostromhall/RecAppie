@@ -6,5 +6,9 @@ use Illuminate\Http\Client\PendingRequest;
 
 interface NutritionProvider
 {
-    public function scaffold(): PendingRequest;
+    public function scaffoldRequest(): PendingRequest;
+
+    public function ingredient(string $name, int|string $quantity, string|null $unit);
+
+    public function ingredientSet(array $set);
 }

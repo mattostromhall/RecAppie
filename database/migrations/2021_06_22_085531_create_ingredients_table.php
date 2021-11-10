@@ -21,6 +21,10 @@ class CreateIngredientsTable extends Migration
             $table->string('name');
             $table->unsignedInteger('quantity');
             $table->string('unit')->nullable();
+            $table->integer('calories')->nullable();
+            $table->integer('carbohydrates')->nullable();
+            $table->integer('fat')->nullable();
+            $table->integer('protein')->nullable();
             $table->timestamps();
         });
     }

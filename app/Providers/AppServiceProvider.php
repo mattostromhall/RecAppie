@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Contracts\Services\NutritionProvider;
-use App\Services\CalorieNinja;
+use App\Services\Nutrition\CalorieNinja;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

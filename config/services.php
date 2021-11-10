@@ -33,9 +33,9 @@ return [
         'provider' => [
             'base_url' => env('NUTRITION_PROVIDER_BASE_URL'),
             'key' => env('NUTRITION_PROVIDER_KEY'),
-            'timeout' => env('NUTRITION_PROVIDER_TIMEOUT'),
-            'retry_times' => env('NUTRITION_PROVIDER_RETRY_TIMES'),
-            'retry_sleep' => env('NUTRITION_PROVIDER_RETRY_SLEEP')
+            'timeout' => env('NUTRITION_PROVIDER_TIMEOUT', 10),
+            'retry_times' => env('NUTRITION_PROVIDER_RETRY_TIMES', null),
+            'retry_sleep' => env('NUTRITION_PROVIDER_RETRY_SLEEP', null)
         ]
     ]
 
