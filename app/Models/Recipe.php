@@ -59,6 +59,18 @@ class Recipe extends Model
             });
     }
 
+    public function macros(): array
+    {
+        $ingredients = $this->ingredients;
+
+        return [
+            'calories' => $ingredients->sum('calories'),
+            'carbohydrates' => $ingredients->sum('carbohydrates'),
+            'fat' => $ingredients->sum('fat'),
+            'protein' => $ingredients->sum('protein')
+        ];
+    }
+
     public static function difficulties(): array
     {
         return [

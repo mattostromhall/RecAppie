@@ -37,6 +37,7 @@ class RecipeController extends Controller
             'recipe' => $recipe,
             'ingredients' => $recipe->ingredients,
             'steps' => $recipe->orderedSteps(),
+            'macros' => $recipe->macros(),
             'author' => auth()->user()->can('edit', $recipe)
         ]);
     }
