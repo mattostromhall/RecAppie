@@ -10,7 +10,7 @@ class RecipePolicy
 {
     use HandlesAuthorization;
 
-    public function edit(User $user, Recipe $recipe)
+    public function edit(User $user, Recipe $recipe): bool
     {
         return $user->id === $recipe->user_id;
     }

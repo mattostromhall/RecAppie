@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
 use App\Models\Recipe;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class IngredientController extends Controller
 {
-    public function store(Request $request, Recipe $recipe)
+    public function store(Request $request, Recipe $recipe): RedirectResponse
     {
         $recipe->ingredients()->create(
             $request->validate([
@@ -21,7 +22,7 @@ class IngredientController extends Controller
         return back();
     }
 
-    public function destroy(Ingredient $ingredient)
+    public function destroy(Ingredient $ingredient): RedirectResponse
     {
         $ingredient->delete();
 

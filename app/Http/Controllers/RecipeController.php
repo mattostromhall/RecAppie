@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Recipe;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class RecipeController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         return Inertia::render('Recipes/Index', [
             'recipes' => Recipe::query()
@@ -29,7 +31,7 @@ class RecipeController extends Controller
         ]);
     }
 
-    public function show(Recipe $recipe)
+    public function show(Recipe $recipe): Response
     {
         return Inertia::render('Recipes/Show', [
             'recipe' => $recipe,
@@ -39,7 +41,7 @@ class RecipeController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Recipes/Create', [
             'categories' => Category::all(),
@@ -47,7 +49,7 @@ class RecipeController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'title' => ['required', 'string'],
@@ -73,7 +75,7 @@ class RecipeController extends Controller
         );
     }
 
-    public function edit(Recipe $recipe)
+    public function edit(Recipe $recipe): Response
     {
         $this->authorize('edit', $recipe);
 

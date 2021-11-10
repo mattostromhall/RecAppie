@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class Recipe extends Model
 {
@@ -11,24 +15,24 @@ class Recipe extends Model
 
     protected $guarded = [];
 
-    public function user()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(related: User::class);
     }
 
-    public function ingredients()
+    public function ingredients(): HasMany
     {
-        return $this->hasMany(Ingredient::class);
+        return $this->hasMany(related: Ingredient::class);
     }
 
-    public function steps()
+    public function steps(): HasMany
     {
-        return $this->hasMany(RecipeStep::class);
+        return $this->hasMany(related: RecipeStep::class);
     }
 
-    public function categories()
+    public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class)
+        return $this->belongsToMany(related: Category::class)
             ->withTimestamps();
     }
 
@@ -41,7 +45,7 @@ class Recipe extends Model
         $this->categories()->attach($ids);
     }
 
-    public function orderedSteps()
+    public function orderedSteps(): Collection
     {
         return $this->steps()
             ->orderByRaw('step_number is null')
@@ -55,7 +59,7 @@ class Recipe extends Model
             });
     }
 
-    public static function difficulties()
+    public static function difficulties(): array
     {
         return [
             [
