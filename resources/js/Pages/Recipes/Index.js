@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import MainNav from '../../Components/MainNav'
 import App from '../../Layouts/App'
 import RecipeCard from './RecipeCard'
@@ -12,6 +12,7 @@ export default function Index({recipes, categories}) {
     const [selectedCategories, setSelectedCategories] = useState([])
     const debouncedSearch = useDebounce(search)
     const selectedCategoryIds = selectedCategories.map(category => category.id).join()
+    const initialRender = useRef(true);
 
     const recipeCards = recipes.data.map(recipe => (
         <RecipeCard
@@ -24,21 +25,21 @@ export default function Index({recipes, categories}) {
     </div>
 
     function filterRecipes() {
+        if (initialRender.current) {
+            return initialRender.current = false
+        }
         Inertia.get('recipes', {
             search: debouncedSearch,
             categories: selectedCategoryIds
         }, {
+            replace: true,
             preserveState: true
         })
     }
 
     useEffect(filterRecipes,
-        [debouncedSearch]
-    );
-
-    useEffect(filterRecipes,
-        [selectedCategories]
-    );
+        [debouncedSearch, selectedCategories]
+    )
 
     return (
         <App title="Dashboard | RecAppie">
