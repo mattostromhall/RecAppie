@@ -26,6 +26,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 |
 */
 Route::middleware(['auth'])->group(function() {
+    Route::redirect('/', '/dashboard');
     Route::get('/dashboard', DashboardController::class)
         ->name('dashboard');
 
