@@ -15,6 +15,13 @@ class Recipe extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'user_id' => 'integer',
+        'prep' => 'integer',
+        'cook' => 'integer',
+        'serves' => 'integer'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(related: User::class);

@@ -11,7 +11,8 @@ use Tests\TestCase;
 
 class RecipeTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase,
+        WithFaker;
 
     protected $user;
 
@@ -28,7 +29,7 @@ class RecipeTest extends TestCase
     {
         $this->get(route('recipes.index'))
             ->assertOk()
-            ->assertInertia(fn (Assert $page) => $page
+            ->assertInertia(fn(Assert $page) => $page
                 ->component('Recipes/Index')
                 ->hasAll('recipes', 'categories')
             );
@@ -41,9 +42,9 @@ class RecipeTest extends TestCase
             'user_id' => $this->user->id
         ]);
 
-        $this->get(route('recipes.show', ['recipe' => 1]))
+        $this->get(route('recipes.show', ['recipe' => $recipe->id]))
             ->assertOk()
-            ->assertInertia(fn (Assert $page) => $page
+            ->assertInertia(fn(Assert $page) => $page
                 ->component('Recipes/Show')
                 ->hasAll('recipe', 'ingredients', 'steps', 'macros', 'author')
                 ->where('recipe.id', $recipe->id)
@@ -62,8 +63,54 @@ class RecipeTest extends TestCase
     }
 
     /** @test */
+    public function edit_view_renders_a_single_recipe()
+    {
+        $recipe = Recipe::factory()->create([
+            'user_id' => $this->user->id
+        ]);
+
+        $this->get(route('recipes.edit', ['recipe' => $recipe->id]))
+            ->assertOk()
+            ->assertInertia(fn(Assert $page) => $page
+                ->component('Recipes/Edit')
+                ->hasAll('recipe', 'ingredients', 'steps')
+                ->where('recipe.id', $recipe->id)
+            );
+    }
+
+    /** @test */
     public function a_recipe_can_be_created()
     {
-        $this->assertTrue(true);
+        $this->post(route('recipes.store'), [
+            'title' => 'Test title',
+            'description' => 'Test Description',
+            'prep' => $this->faker->numberBetween(0, 60),
+            'cook' => $this->faker->numberBetween(0, 60),
+            'serves' => $this->faker->numberBetween(0, 10),
+            'difficulty' => 'easy',
+            'categories' => []
+        ])
+            ->assertRedirect(route('recipes.edit', ['recipe' => 1]));
+
+        $this->assertDatabaseHas(Recipe::class, [
+            'title' => 'Test title',
+            'description' => 'Test Description'
+        ]);
+    }
+
+    /** @test */
+    public function validation_errors_are_thrown_for_incorrect_recipe_data_when_creating()
+    {
+        $this->post(route('recipes.store'), [
+            'title' => 'Test title',
+            'description' => 'Test Description',
+            'categories' => []
+        ])
+            ->assertSessionHasErrors();
+
+        $this->assertDatabaseMissing(Recipe::class, [
+            'title' => 'Test title',
+            'description' => 'Test Description'
+        ]);
     }
 }
