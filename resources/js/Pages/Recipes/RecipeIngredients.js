@@ -3,36 +3,41 @@ import {RecipeContext} from '../../app'
 import DeleteRecipeIngredient from './DeleteRecipeIngredient'
 
 export default function RecipeIngredients() {
-    const { ingredients, macros } = useContext(RecipeContext)
+    const { recipe, ingredients, macros } = useContext(RecipeContext)
+
+    function perServing(value) {
+        return value / recipe.serves
+    }
 
     return (
         <section className="text-gray-600 body-font w-full max-w-2xl px-3">
             {ingredients.length > 0 &&
                 <div className="-mt-3">
+                    <p className="-mt-3 text-center font-semibold mb-1">Per serving</p>
                     <div className="flex flex-wrap justify-center text-sm space-x-5">
                         <div className="flex">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                             </svg>
-                            <p>Calories - {macros.calories}</p>
+                            <p>Calories - {Math.round(perServing(macros.calories))}</p>
                         </div>
                         <div className="flex">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                             </svg>
-                            <p className="font-semibold capitalize">Carbohydrates - {macros.carbohydrates}g</p>
+                            <p className="font-semibold capitalize">Carbohydrates - {perServing(macros.carbohydrates)}g</p>
                         </div>
                         <div className="flex">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                             </svg>
-                            <p className="font-semibold capitalize">Fat - {macros.fat}g</p>
+                            <p className="font-semibold capitalize">Fat - {perServing(macros.fat)}g</p>
                         </div>
                         <div className="flex">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                             </svg>
-                            <p className="font-semibold capitalize">Protein - {macros.protein}g</p>
+                            <p className="font-semibold capitalize">Protein - {perServing(macros.protein)}g</p>
                         </div>
                     </div>
                     <h2 className="font-medium mb-3 text-lg px-3 mt-3">Recipe ingredients</h2>
